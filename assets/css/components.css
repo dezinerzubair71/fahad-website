@@ -2133,3 +2133,107 @@ html, body {
   color: var(--color-apex-blue);
 }
 
+
+/* --- Mobile Drawer Interactive Contact Details & Socials --- */
+.mobile-contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: transform 250ms ease, background-color 250ms ease, box-shadow 250ms ease;
+  background-color: var(--color-cloud);
+}
+
+.mobile-contact-item:hover {
+  transform: translateX(6px);
+  background-color: var(--color-paper);
+  box-shadow: 0 4px 12px rgba(15, 20, 40, 0.06);
+}
+
+.mobile-contact-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 250ms ease, background-color 250ms ease, color 250ms ease;
+}
+
+.mobile-contact-icon.blue {
+  background: var(--color-blue-tint);
+  color: var(--color-apex-blue);
+}
+.mobile-contact-item:hover .mobile-contact-icon.blue {
+  background: var(--color-apex-blue);
+  color: var(--color-paper);
+  transform: scale(1.15) rotate(6deg);
+}
+
+.mobile-contact-icon.teal {
+  background: var(--color-teal-tint);
+  color: var(--color-signal-teal);
+}
+.mobile-contact-item:hover .mobile-contact-icon.teal {
+  background: var(--color-signal-teal);
+  color: var(--color-paper);
+  transform: scale(1.15) rotate(6deg);
+}
+
+.mobile-contact-icon.violet {
+  background: var(--color-violet-tint);
+  color: var(--color-violet-ascent);
+}
+.mobile-contact-item:hover .mobile-contact-icon.violet {
+  background: var(--color-violet-ascent);
+  color: var(--color-paper);
+  transform: scale(1.15) rotate(6deg);
+}
+
+.mobile-contact-icon.coral {
+  background: var(--color-coral-tint);
+  color: var(--color-ignite-coral);
+}
+.mobile-contact-item:hover .mobile-contact-icon.coral {
+  background: var(--color-ignite-coral);
+  color: var(--color-paper);
+  transform: scale(1.15) rotate(6deg);
+}
+
+.m-contact-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-slate);
+}
+
+.m-contact-val {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.mobile-social-link {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background: var(--color-cloud);
+  color: var(--color-slate);
+  display: flex;
+  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 250ms ease, background-color 250ms ease, color 250ms ease;
+}
+
+.mobile-social-link:hover {
+  transform: translateY(-3px) scale(1.1);
+  background: var(--color-apex-blue);
+  color: var(--color-paper);
+}
