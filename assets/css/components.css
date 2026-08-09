@@ -2042,20 +2042,19 @@ html, body {
 }
 
 .mobile-accordion-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 0;
+  opacity: 0;
   overflow: hidden;
+  transition: max-height 450ms cubic-bezier(0.16, 1, 0.3, 1), opacity 300ms ease, margin 300ms ease;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .mobile-accordion-content.is-open {
-  grid-template-rows: 1fr;
+  max-height: 1600px;
+  opacity: 1;
   margin-top: var(--space-2);
   margin-bottom: var(--space-3);
-}
-
-.mobile-accordion-content > div {
-  min-height: 0;
 }
 
 .mobile-cat-group {
