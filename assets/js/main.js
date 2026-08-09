@@ -127,6 +127,22 @@ function initMobileDrawer() {
   if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
   backdrop.addEventListener('click', closeDrawer);
+  // Mobile Services Accordion Toggle inside Drawer
+  const servicesBtn = document.getElementById('mobile-services-btn');
+  const servicesContent = document.getElementById('mobile-services-content');
+  if (servicesBtn && servicesContent) {
+    servicesBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = servicesContent.classList.contains('is-open');
+      if (isOpen) {
+        servicesContent.classList.remove('is-open');
+        servicesBtn.classList.remove('is-active');
+      } else {
+        servicesContent.classList.add('is-open');
+        servicesBtn.classList.add('is-active');
+      }
+    });
+  }
 }
 
 /* Scroll Reveal Animations */

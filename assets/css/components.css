@@ -1779,3 +1779,254 @@
   color: var(--color-signal-teal);
 }
 
+/* ==========================================================================
+   Comprehensive 100% Mobile & Tablet Responsiveness Overhaul
+   ========================================================================== */
+
+/* Global Mobile Resets */
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  position: relative;
+}
+
+/* Container Spacing for Small Viewports */
+@media (max-width: 768px) {
+  .container, .container-narrow {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .section {
+    padding-top: var(--space-8) !important;
+    padding-bottom: var(--space-8) !important;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-6) !important;
+  }
+
+  h1, .h1 {
+    font-size: clamp(1.85rem, 7vw, 2.5rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  h2, .h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  h3, .h3 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem) !important;
+  }
+
+  .lead {
+    font-size: 0.9375rem !important;
+  }
+}
+
+/* Grid & Column Stacking */
+@media (max-width: 992px) {
+  .grid-12 {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-6) !important;
+  }
+
+  .grid-12 > [style*="grid-column"],
+  .grid-12 > * {
+    grid-column: span 1 / -1 !important;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .comparison-container {
+    flex-direction: column !important;
+    gap: var(--space-6) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-4, .grid-3, .grid-2, .grid-steps {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-4) !important;
+  }
+  
+  .flex.gap-4, .hero .flex.gap-4 {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* Homepage Hero Floating Badges Mobile Reset */
+@media (max-width: 768px) {
+  .hero-floating-badge--top-right,
+  .hero-floating-badge--bottom-left {
+    position: static !important;
+    transform: none !important;
+    margin: var(--space-3) 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .hero-card-showcase {
+    padding: var(--space-5) !important;
+    margin-top: var(--space-4) !important;
+  }
+}
+
+/* Service Hero Cards Mobile Reset */
+@media (max-width: 640px) {
+  .service-hero-card {
+    padding: var(--space-5) !important;
+  }
+
+  .service-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .service-hero-main-stat {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--space-3) !important;
+  }
+
+  .service-sparkline-svg {
+    width: 100% !important;
+    height: 45px !important;
+  }
+}
+
+/* Footer Mobile Reset */
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-7) !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+    text-align: center !important;
+  }
+}
+
+/* Mobile Navigation Accordion Drawer & Mega Menu */
+.mobile-nav-accordion {
+  width: 100%;
+}
+
+.mobile-accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color-ink);
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.mobile-accordion-arrow {
+  transition: transform 300ms ease, color 300ms ease;
+}
+
+.mobile-accordion-btn.is-active .mobile-accordion-arrow {
+  transform: rotate(180deg);
+  color: var(--color-apex-blue);
+}
+
+.mobile-accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.mobile-accordion-content.is-open {
+  grid-template-rows: 1fr;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.mobile-accordion-content > div {
+  min-height: 0;
+}
+
+.mobile-cat-group {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-3);
+  border-left: 2.5px solid var(--color-mist);
+}
+
+.mobile-cat-title {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+}
+
+.mobile-cat-title.paid { color: var(--color-apex-blue); }
+.mobile-cat-title.organic { color: var(--color-signal-teal); }
+.mobile-cat-title.web { color: var(--color-violet-ascent); }
+.mobile-cat-title.brand { color: var(--color-ignite-coral); }
+
+.mobile-service-link {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: background-color 200ms ease;
+  margin-bottom: 2px;
+}
+
+.mobile-service-link:hover,
+.mobile-service-link:active {
+  background-color: var(--color-cloud);
+}
+
+.mobile-service-link .m-title {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.2;
+}
+
+.mobile-service-link .m-desc {
+  font-size: 0.75rem;
+  color: var(--color-slate);
+  margin-top: 1px;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--color-ink);
+  padding: 10px 0;
+  text-decoration: none;
+  display: block;
+}
+
+.mobile-nav-link:hover {
+  color: var(--color-apex-blue);
+}
+
