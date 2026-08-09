@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         let headerHtml = await headerRes.text();
         if (isSubfolder) {
           headerHtml = headerHtml.replace(/href="services\//g, 'href="../services/');
-          headerHtml = headerHtml.replace(/href="index.html"/g, 'href="../index.html"');
-          headerHtml = headerHtml.replace(/href="about.html"/g, 'href="../about.html"');
-          headerHtml = headerHtml.replace(/href="careers.html"/g, 'href="../careers.html"');
-          headerHtml = headerHtml.replace(/href="contact.html"/g, 'href="../contact.html"');
+          headerHtml = headerHtml.replace(/href="index"/g, 'href="../index.html"');
+          headerHtml = headerHtml.replace(/href="about"/g, 'href="../about.html"');
+          headerHtml = headerHtml.replace(/href="careers"/g, 'href="../careers.html"');
+          headerHtml = headerHtml.replace(/href="contact"/g, 'href="../contact.html"');
         }
         headerContainer.innerHTML = headerHtml;
       }
@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         let footerHtml = await footerRes.text();
         if (isSubfolder) {
           footerHtml = footerHtml.replace(/href="services\//g, 'href="../services/');
-          footerHtml = footerHtml.replace(/href="index.html"/g, 'href="../index.html"');
-          footerHtml = footerHtml.replace(/href="about.html"/g, 'href="../about.html"');
-          footerHtml = footerHtml.replace(/href="careers.html"/g, 'href="../careers.html"');
-          footerHtml = footerHtml.replace(/href="contact.html"/g, 'href="../contact.html"');
+          footerHtml = footerHtml.replace(/href="index"/g, 'href="../index.html"');
+          footerHtml = footerHtml.replace(/href="about"/g, 'href="../about.html"');
+          footerHtml = footerHtml.replace(/href="careers"/g, 'href="../careers.html"');
+          footerHtml = footerHtml.replace(/href="contact"/g, 'href="../contact.html"');
         }
         footerContainer.innerHTML = footerHtml;
       }
