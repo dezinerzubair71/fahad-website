@@ -1780,7 +1780,7 @@
 }
 
 /* ==========================================================================
-   Comprehensive 100% Mobile & Tablet Responsiveness Overhaul
+   Comprehensive 100% Mobile & Tablet Responsiveness & Mobile Header Overhaul
    ========================================================================== */
 
 /* Global Mobile Resets */
@@ -1790,7 +1790,32 @@ html, body {
   position: relative;
 }
 
-/* Container Spacing for Small Viewports */
+/* Header & Mobile Navigation Fix (Prevents Overlap on Mobile) */
+@media (max-width: 992px) {
+  .main-nav {
+    display: none !important;
+  }
+
+  .header-cta .btn:not(.mobile-nav-toggle) {
+    display: none !important;
+  }
+
+  .mobile-nav-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-lockup span {
+    font-size: 1.125rem !important;
+  }
+
+  .site-header {
+    padding: 12px 0 !important;
+  }
+}
+
+/* Container & Section Spacing for Small Viewports */
 @media (max-width: 768px) {
   .container, .container-narrow {
     padding-left: 16px !important;
@@ -1825,7 +1850,45 @@ html, body {
   }
 }
 
-/* Grid & Column Stacking */
+/* Mobile Touch-Snap Horizontal Carousels for Grids Across All Pages */
+@media (max-width: 768px) {
+  .grid-3,
+  .grid-4,
+  .grid-steps,
+  .comparison-container {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: var(--space-4) !important;
+    padding-top: var(--space-2) !important;
+    padding-left: var(--space-1) !important;
+    padding-right: var(--space-1) !important;
+    gap: var(--space-4) !important;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .grid-3::-webkit-scrollbar,
+  .grid-4::-webkit-scrollbar,
+  .grid-steps::-webkit-scrollbar,
+  .comparison-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbars for slick native app look */
+  }
+
+  .grid-3 > *,
+  .grid-4 > *,
+  .grid-steps > *,
+  .comparison-container > * {
+    flex: 0 0 84% !important;
+    max-width: 84% !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Grid & Column Stacking for Grid-12 */
 @media (max-width: 992px) {
   .grid-12 {
     grid-template-columns: 1fr !important;
@@ -1836,27 +1899,9 @@ html, body {
   .grid-12 > * {
     grid-column: span 1 / -1 !important;
   }
-
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  .grid-3 {
-    grid-template-columns: 1fr !important;
-  }
-
-  .comparison-container {
-    flex-direction: column !important;
-    gap: var(--space-6) !important;
-  }
 }
 
 @media (max-width: 640px) {
-  .grid-4, .grid-3, .grid-2, .grid-steps {
-    grid-template-columns: 1fr !important;
-    gap: var(--space-4) !important;
-  }
-  
   .flex.gap-4, .hero .flex.gap-4 {
     flex-direction: column !important;
     width: 100% !important;
