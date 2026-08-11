@@ -3,20 +3,20 @@
 :root {
   /* Color Palette */
   --color-ink: #0F1428;
-  --color-apex-blue: #4A5AF0;
-  --color-ignite-coral: #FF6B4D;
-  --color-signal-teal: #17B8A6;
-  --color-violet-ascent: #8B5FF0;
+  --color-apex-blue: #0263DC;
+  --color-ignite-coral: #F7A319;
+  --color-signal-teal: #06D9F9;
+  --color-violet-ascent: #034AAE;
   --color-cloud: #F6F7FB;
   --color-mist: #E4E7F2;
   --color-slate: #5B6178;
   --color-paper: #FFFFFF;
 
   /* Subtle Tints for Badges and Hover States */
-  --color-blue-tint: rgba(74, 90, 240, 0.08);
-  --color-coral-tint: rgba(255, 107, 77, 0.08);
-  --color-teal-tint: rgba(23, 184, 166, 0.08);
-  --color-violet-tint: rgba(139, 95, 240, 0.08);
+  --color-blue-tint: rgba(2, 99, 220, 0.08);
+  --color-coral-tint: rgba(247, 163, 25, 0.10);
+  --color-teal-tint: rgba(6, 217, 249, 0.10);
+  --color-violet-tint: rgba(3, 74, 174, 0.08);
 
   /* Typography */
   --font-display: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;

@@ -418,14 +418,14 @@
   height: 8px;
   border-radius: 50%;
   background-color: var(--color-signal-teal);
-  box-shadow: 0 0 0 0 rgba(23, 184, 166, 0.7);
+  box-shadow: 0 0 0 0 rgba(6, 217, 249, 0.7);
   animation: pulse-dot 2s infinite;
 }
 
 @keyframes pulse-dot {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(23, 184, 166, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(23, 184, 166, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(23, 184, 166, 0); }
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(6, 217, 249, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(6, 217, 249, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(6, 217, 249, 0); }
 }
 
 .hero-floating-badge {
@@ -534,10 +534,10 @@
   box-shadow: 0 20px 40px rgba(15, 20, 40, 0.12);
 }
 
-.card-service.paid:hover { border-color: rgba(74, 90, 240, 0.4); }
-.card-service.organic:hover { border-color: rgba(23, 184, 166, 0.4); }
-.card-service.web:hover { border-color: rgba(139, 95, 240, 0.4); }
-.card-service.brand:hover { border-color: rgba(255, 107, 77, 0.4); }
+.card-service.paid:hover { border-color: rgba(2, 99, 220, 0.4); }
+.card-service.organic:hover { border-color: rgba(6, 217, 249, 0.4); }
+.card-service.web:hover { border-color: rgba(3, 74, 174, 0.4); }
+.card-service.brand:hover { border-color: rgba(247, 163, 25, 0.4); }
 
 .card-service:hover::before {
   opacity: 1;
@@ -670,7 +670,7 @@
 .card-stat:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 20px 45px rgba(15, 20, 40, 0.12);
-  border-color: rgba(74, 90, 240, 0.4);
+  border-color: rgba(2, 99, 220, 0.4);
 }
 
 .card-stat:hover::before {
@@ -695,7 +695,7 @@
 .card-stat:hover .card-stat-num {
   transform: scale(1.06);
   color: var(--color-apex-blue);
-  text-shadow: 0 4px 16px rgba(74, 90, 240, 0.2);
+  text-shadow: 0 4px 16px rgba(2, 99, 220, 0.2);
 }
 
 .card-stat-label {
@@ -785,7 +785,7 @@
 
 .comparison-apex:hover {
   transform: translateY(-6px);
-  box-shadow: 0 25px 60px rgba(74, 90, 240, 0.28);
+  box-shadow: 0 25px 60px rgba(2, 99, 220, 0.28);
   border-color: #6370F5;
 }
 
@@ -841,7 +841,7 @@
 
 .comparison-apex .comparison-item-icon {
   color: var(--color-signal-teal) !important;
-  background: rgba(23, 184, 166, 0.18);
+  background: rgba(6, 217, 249, 0.18);
 }
 
 .comparison-apex .comparison-item:hover .comparison-item-icon {
@@ -879,7 +879,7 @@
 .card-testimonial:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 45px rgba(15, 20, 40, 0.12);
-  border-color: rgba(74, 90, 240, 0.35);
+  border-color: rgba(2, 99, 220, 0.35);
 }
 
 .card-testimonial:hover::before {
@@ -952,9 +952,9 @@
   font-weight: 700;
   font-size: 0.875rem;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 12px rgba(74, 90, 240, 0.25);
+  box-shadow: 0 4px 12px rgba(2, 99, 220, 0.25);
   border: 2px solid var(--color-paper);
-  outline: 2px solid rgba(74, 90, 240, 0.2);
+  outline: 2px solid rgba(2, 99, 220, 0.2);
   transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms ease, outline-color 300ms ease;
   flex-shrink: 0;
 }
@@ -962,47 +962,47 @@
 .card-testimonial:hover .avatar-placeholder,
 .card-service:hover .avatar-placeholder {
   transform: scale(1.12) rotate(4deg);
-  box-shadow: 0 8px 20px rgba(74, 90, 240, 0.35);
+  box-shadow: 0 8px 20px rgba(2, 99, 220, 0.35);
   outline-color: var(--color-apex-blue);
 }
 
 .avatar-placeholder.teal {
   background: linear-gradient(135deg, var(--color-signal-teal) 0%, #0D9488 100%);
-  box-shadow: 0 4px 12px rgba(23, 184, 166, 0.25);
-  outline-color: rgba(23, 184, 166, 0.2);
+  box-shadow: 0 4px 12px rgba(6, 217, 249, 0.25);
+  outline-color: rgba(6, 217, 249, 0.2);
 }
 
 .avatar-placeholder.teal:hover,
 .card-testimonial:hover .avatar-placeholder.teal,
 .card-service:hover .avatar-placeholder.teal {
   outline-color: var(--color-signal-teal);
-  box-shadow: 0 8px 20px rgba(23, 184, 166, 0.35);
+  box-shadow: 0 8px 20px rgba(6, 217, 249, 0.35);
 }
 
 .avatar-placeholder.violet {
   background: linear-gradient(135deg, var(--color-violet-ascent) 0%, #6D28D9 100%);
-  box-shadow: 0 4px 12px rgba(139, 95, 240, 0.25);
-  outline-color: rgba(139, 95, 240, 0.2);
+  box-shadow: 0 4px 12px rgba(3, 74, 174, 0.25);
+  outline-color: rgba(3, 74, 174, 0.2);
 }
 
 .avatar-placeholder.violet:hover,
 .card-testimonial:hover .avatar-placeholder.violet,
 .card-service:hover .avatar-placeholder.violet {
   outline-color: var(--color-violet-ascent);
-  box-shadow: 0 8px 20px rgba(139, 95, 240, 0.35);
+  box-shadow: 0 8px 20px rgba(3, 74, 174, 0.35);
 }
 
 .avatar-placeholder.coral {
   background: linear-gradient(135deg, var(--color-ignite-coral) 0%, #EA580C 100%);
-  box-shadow: 0 4px 12px rgba(255, 107, 77, 0.25);
-  outline-color: rgba(255, 107, 77, 0.2);
+  box-shadow: 0 4px 12px rgba(247, 163, 25, 0.25);
+  outline-color: rgba(247, 163, 25, 0.2);
 }
 
 .avatar-placeholder.coral:hover,
 .card-testimonial:hover .avatar-placeholder.coral,
 .card-service:hover .avatar-placeholder.coral {
   outline-color: var(--color-ignite-coral);
-  box-shadow: 0 8px 20px rgba(255, 107, 77, 0.35);
+  box-shadow: 0 8px 20px rgba(247, 163, 25, 0.35);
 }
 
 /* Forms & Inputs */
@@ -1033,7 +1033,7 @@
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   outline: none;
   border-color: var(--color-apex-blue);
-  box-shadow: 0 0 0 3px rgba(74, 90, 240, 0.15);
+  box-shadow: 0 0 0 3px rgba(2, 99, 220, 0.15);
 }
 
 .form-error {
@@ -1274,8 +1274,8 @@
 
 .tech-stack-pill:hover {
   transform: translateY(-4px) scale(1.04);
-  border-color: rgba(74, 90, 240, 0.4);
-  box-shadow: 0 12px 28px rgba(74, 90, 240, 0.15);
+  border-color: rgba(2, 99, 220, 0.4);
+  box-shadow: 0 12px 28px rgba(2, 99, 220, 0.15);
   background-color: var(--color-paper);
 }
 
@@ -1317,8 +1317,8 @@
 
 .case-snapshot-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(74, 90, 240, 0.5);
-  box-shadow: 0 25px 60px rgba(74, 90, 240, 0.25);
+  border-color: rgba(2, 99, 220, 0.5);
+  box-shadow: 0 25px 60px rgba(2, 99, 220, 0.25);
 }
 
 .case-snapshot-card .stat-number-glow {
@@ -1326,14 +1326,14 @@
   font-size: 3.5rem;
   font-weight: 800;
   color: var(--color-paper);
-  text-shadow: 0 0 30px rgba(74, 90, 240, 0.6);
+  text-shadow: 0 0 30px rgba(2, 99, 220, 0.6);
   transition: transform 300ms ease, text-shadow 300ms ease;
   display: inline-block;
 }
 
 .case-snapshot-card:hover .stat-number-glow {
   transform: scale(1.05);
-  text-shadow: 0 0 45px rgba(23, 184, 166, 0.8);
+  text-shadow: 0 0 45px rgba(6, 217, 249, 0.8);
 }
 
 /* --- Step Methodology Cards (Screenshot 3) --- */
@@ -1384,7 +1384,7 @@
 .card-step:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 45px rgba(15, 20, 40, 0.12);
-  border-color: rgba(74, 90, 240, 0.4);
+  border-color: rgba(2, 99, 220, 0.4);
 }
 
 .card-step:hover::before {
@@ -1453,7 +1453,7 @@
 .core-values-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 45px rgba(15, 20, 40, 0.12);
-  border-color: rgba(74, 90, 240, 0.35);
+  border-color: rgba(2, 99, 220, 0.35);
 }
 
 .core-values-card:hover::before {
@@ -1507,7 +1507,7 @@
 .contact-info-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(74, 90, 240, 0.3);
+  border-color: rgba(2, 99, 220, 0.3);
 }
 
 .contact-info-item {
@@ -1525,7 +1525,7 @@
 
 .contact-info-item:hover {
   transform: translateX(8px);
-  border-color: rgba(74, 90, 240, 0.4);
+  border-color: rgba(2, 99, 220, 0.4);
   box-shadow: 0 10px 28px rgba(15, 20, 40, 0.08);
   background-color: var(--color-paper);
 }
@@ -1543,7 +1543,7 @@
 
 .contact-info-item:hover .contact-info-icon {
   transform: scale(1.18) rotate(6deg);
-  box-shadow: 0 6px 18px rgba(74, 90, 240, 0.25);
+  box-shadow: 0 6px 18px rgba(2, 99, 220, 0.25);
 }
 
 .contact-info-icon.blue {
@@ -1606,7 +1606,7 @@
   width: 28px;
   height: 28px;
   border-radius: var(--radius-pill);
-  background: rgba(74, 90, 240, 0.15);
+  background: rgba(2, 99, 220, 0.15);
   color: var(--color-apex-blue);
   display: flex;
   align-items: center;
@@ -1622,7 +1622,7 @@
 }
 
 .footer-contact-icon.teal {
-  background: rgba(23, 184, 166, 0.15);
+  background: rgba(6, 217, 249, 0.15);
   color: var(--color-signal-teal);
 }
 .footer-contact-item:hover .footer-contact-icon.teal {
@@ -1631,7 +1631,7 @@
 }
 
 .footer-contact-icon.violet {
-  background: rgba(139, 95, 240, 0.15);
+  background: rgba(3, 74, 174, 0.15);
   color: var(--color-violet-ascent);
 }
 .footer-contact-item:hover .footer-contact-icon.violet {
@@ -1640,7 +1640,7 @@
 }
 
 .footer-contact-icon.coral {
-  background: rgba(255, 107, 77, 0.15);
+  background: rgba(247, 163, 25, 0.15);
   color: var(--color-ignite-coral);
 }
 .footer-contact-item:hover .footer-contact-icon.coral {
@@ -1674,8 +1674,8 @@
 
 .service-hero-card:hover {
   transform: translateY(-8px) scale(1.015);
-  box-shadow: 0 25px 60px rgba(74, 90, 240, 0.22);
-  border-color: rgba(74, 90, 240, 0.4);
+  box-shadow: 0 25px 60px rgba(2, 99, 220, 0.22);
+  border-color: rgba(2, 99, 220, 0.4);
 }
 
 .service-hero-pill-tag {
@@ -1749,7 +1749,7 @@
 }
 
 .service-hero-card:hover .service-kpi-badge {
-  border-color: rgba(74, 90, 240, 0.25);
+  border-color: rgba(2, 99, 220, 0.25);
   box-shadow: 0 4px 12px rgba(15, 20, 40, 0.04);
 }
 
