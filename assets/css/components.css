@@ -18,6 +18,41 @@
   white-space: nowrap;
 }
 
+
+/* --- Logo Brand Electric Blue Gradient Buttons & Badges --- */
+.btn-primary {
+  background: linear-gradient(135deg, #0263DC 0%, #06D9F9 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(2, 99, 220, 0.35) !important;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #013595 0%, #0263DC 100%) !important;
+  box-shadow: 0 8px 25px rgba(2, 99, 220, 0.50) !important;
+  transform: translateY(-2px) !important;
+}
+
+.eyebrow {
+  color: #0263DC !important;
+  background: rgba(2, 99, 220, 0.08) !important;
+}
+
+.eyebrow--coral {
+  color: #F7A319 !important;
+  background: rgba(247, 163, 25, 0.12) !important;
+}
+
+.eyebrow--teal {
+  color: #06D9F9 !important;
+  background: rgba(6, 217, 249, 0.12) !important;
+}
+
+.eyebrow--violet {
+  color: #034AAE !important;
+  background: rgba(3, 74, 174, 0.10) !important;
+}
+
 .btn-primary {
   background-color: var(--color-apex-blue);
   color: var(--color-paper);
