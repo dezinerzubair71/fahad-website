@@ -137,6 +137,20 @@
   text-decoration: none;
 }
 
+
+.logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(15, 20, 40, 0.12);
+  transition: transform 250ms ease;
+}
+
+.logo-lockup:hover .logo-img {
+  transform: scale(1.05);
+}
+
 .logo-icon {
   width: 32px;
   height: 32px;
