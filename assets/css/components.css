@@ -138,17 +138,52 @@
 }
 
 
-.logo-img {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  object-fit: cover;
-  box-shadow: 0 2px 8px rgba(15, 20, 40, 0.12);
-  transition: transform 250ms ease;
+.logo-lockup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.375rem;
+  color: var(--color-ink);
+  text-decoration: none;
 }
 
-.logo-lockup:hover .logo-img {
-  transform: scale(1.05);
+.logo-img {
+  width: 34px !important;
+  height: 34px !important;
+  max-width: 34px !important;
+  max-height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+.logo-lockup:hover .logo-lockup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.375rem;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 34px !important;
+  height: 34px !important;
+  max-width: 34px !important;
+  max-height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
 }
 
 .logo-icon {
