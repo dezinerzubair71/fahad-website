@@ -412,7 +412,7 @@
 /* --- Interactive Hero Section & Showcase --- */
 .hero {
     position: relative;
-    padding: 130px 0 56px;
+    padding: 175px 0 60px;
     background: linear-gradient(180deg, var(--color-paper, #FFFFFF) 0%, var(--color-cloud, #F6F7FB) 100%);
     overflow: hidden;
 }
@@ -451,8 +451,6 @@
     letter-spacing: 0.08em;
     color: var(--color-apex-blue, #275DDB);
     margin-bottom: 20px;
-    opacity: 0; transform: translateY(14px);
-    animation: heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.1s;
 }
 
 .hero .eyebrow svg { flex-shrink: 0; }
@@ -464,8 +462,6 @@
     letter-spacing: -0.025em;
     color: var(--color-ink, #171C31);
     margin-bottom: 16px;
-    opacity: 0; transform: translateY(14px);
-    animation: heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.18s;
 }
 
 .hero-title .gradient-text {
@@ -481,8 +477,6 @@
     color: var(--color-slate, #5E6680);
     max-width: 500px;
     margin-bottom: 28px;
-    opacity: 0; transform: translateY(14px);
-    animation: heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.26s;
 }
 
 .cta-row {
@@ -491,8 +485,6 @@
     gap: 20px;
     flex-wrap: wrap;
     margin-bottom: 12px;
-    opacity: 0; transform: translateY(14px);
-    animation: heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.34s;
 }
 
 .btn-cta {
@@ -539,14 +531,10 @@
 
 .hero-note {
     font-size: 0.75rem; color: var(--color-slate, #5E6680);
-    opacity: 0; transform: translateY(14px);
-    animation: heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.4s;
 }
 
 .trusted-section {
     margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--color-mist, #E4E7F2);
-    opacity: 0; transform: translateY(14px);
-    animation: heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.5s;
 }
 
 .trusted-label {
@@ -560,9 +548,9 @@
 
 .trusted-logo-item {
     display: flex; align-items: center; gap: 6px;
-    opacity: 0.35; transition: opacity 0.3s ease; cursor: default;
+    opacity: 0.45; transition: opacity 0.3s ease; cursor: default;
 }
-.trusted-logo-item:hover { opacity: 0.65; }
+.trusted-logo-item:hover { opacity: 0.85; }
 
 .trusted-logo-mark {
     width: 24px; height: 24px; border-radius: 6px;
@@ -575,8 +563,6 @@
 .hero-right {
     position: relative; z-index: 1;
     perspective: 1200px;
-    opacity: 0; transform: translateY(20px);
-    animation: heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards 0.3s;
 }
 
 .showcase-scene {
