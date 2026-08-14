@@ -339,28 +339,63 @@ function initHeroInteractive() {
   // Start immediately
   startAllAnimations();
 
+  // Interactive SVG Graph Dot Hover & Tooltip Handler
+  const chartArea = document.getElementById('dash-chart-area');
+  const tooltip = document.getElementById('chart-hover-tooltip');
+  const ttMonth = document.getElementById('tt-month');
+  const ttVal = document.getElementById('tt-val');
+  const ttPct = document.getElementById('tt-pct');
+  const trackerLine = document.getElementById('tracker-line');
+  const dots = document.querySelectorAll('.ascent-dot');
+
+  if (chartArea && tooltip && dots.length > 0) {
+    dots.forEach((dot) => {
+      dot.addEventListener('mouseenter', () => {
+        dots.forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+
+        const month = dot.getAttribute('data-month');
+        const val = dot.getAttribute('data-val');
+        const pct = dot.getAttribute('data-pct');
+        const cx = dot.getAttribute('cx');
+
+        if (ttMonth) ttMonth.textContent = month;
+        if (ttVal) ttVal.textContent = val;
+        if (ttPct) ttPct.textContent = pct;
+
+        if (trackerLine) {
+          trackerLine.setAttribute('x1', cx);
+          trackerLine.setAttribute('x2', cx);
+          trackerLine.style.opacity = '1';
+        }
+
+        tooltip.classList.add('active');
+      });
+
+      dot.addEventListener('mouseleave', () => {
+        if (trackerLine) trackerLine.style.opacity = '0';
+      });
+    });
+
+    chartArea.addEventListener('mouseleave', () => {
+      tooltip.classList.remove('active');
+      if (trackerLine) trackerLine.style.opacity = '0';
+      dots.forEach(d => d.classList.remove('active'));
+      if (dots[dots.length - 1]) dots[dots.length - 1].classList.add('active');
+    });
+  }
+
   // Dashboard Hover Re-trigger
   const dashMain = document.getElementById('dashboard-main');
   const ascentLine = document.getElementById('ascent-line');
   const ascentArea = document.getElementById('ascent-area');
-  const chartValue = document.getElementById('chart-value');
-  const dots = document.querySelectorAll('.ascent-dot');
 
   if (dashMain && ascentLine) {
     dashMain.addEventListener('mouseenter', () => {
       ascentLine.classList.remove('drawn');
-      if (ascentArea) ascentArea.classList.remove('visible');
-      if (chartValue) chartValue.classList.remove('visible');
-      dots.forEach(d => d.classList.remove('visible'));
-
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           ascentLine.classList.add('drawn');
-          if (ascentArea) ascentArea.classList.add('visible');
-          if (chartValue) chartValue.classList.add('visible');
-          dots.forEach((dot, i) => {
-            setTimeout(() => { dot.classList.add('visible'); }, 200 + i * 100);
-          });
         });
       });
     });

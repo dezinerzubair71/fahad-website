@@ -12,9 +12,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apex Brand Works — 360° Digital Marketing Agency</title>
   <meta name="description" content="Apex Brand Works is a premium digital marketing agency delivering 360° solutions across SEO, PPC, Social Media, Branding, Website Development, and Lead Generation.">
-  <link rel="stylesheet" href="/assets/css/tokens.css?v=90">
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=110">
   <link rel="stylesheet" href="/assets/css/base.css">
-  <link rel="stylesheet" href="/assets/css/components.css?v=90">
+  <link rel="stylesheet" href="/assets/css/components.css?v=110">
 
   <script type="application/ld+json">
   {
@@ -587,38 +587,64 @@
                 </div>
                 <div class="dash-body">
                   <!-- Ascent Chart -->
-                  <div class="dash-chart-area">
+                  <!-- Ascent Chart -->
+                  <div class="dash-chart-area" id="dash-chart-area">
                     <div class="dash-chart-header">
-                      <span class="dash-chart-title">Revenue Growth</span>
+                      <div class="dash-chart-title-group">
+                        <span class="dash-chart-title">Revenue Growth</span>
+                        <div class="dash-chart-main-value">
+                          <span class="dash-value-num">+285%</span>
+                          <span class="dash-value-badge">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                            vs last yr
+                          </span>
+                        </div>
+                      </div>
                       <span class="dash-chart-period">Last 12 Months</span>
                     </div>
-                    <div class="dash-chart-value" id="chart-value">
-                      +285%
-                      <small>vs last year</small>
+
+                    <!-- Floating Interactive Hover Tooltip -->
+                    <div class="chart-tooltip-badge" id="chart-hover-tooltip">
+                      <div class="tooltip-month" id="tt-month">Q4 Record (Dec)</div>
+                      <div class="tooltip-val" id="tt-val">$385,000 Revenue</div>
+                      <div class="tooltip-pct" id="tt-pct">+285% YoY Growth</div>
                     </div>
-                    <svg class="ascent-chart-svg" viewBox="0 0 320 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                    <svg class="ascent-chart-svg" id="chart-svg" viewBox="0 0 320 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <defs>
                         <linearGradient id="lineGrad" x1="0" y1="60" x2="320" y2="10" gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#5E6680"/>
-                          <stop offset="0.35" stop-color="#37D9F8"/>
-                          <stop offset="1" stop-color="#275DDB"/>
+                          <stop stop-color="#37D9F8"/>
+                          <stop offset="0.5" stop-color="#275DDB"/>
+                          <stop offset="1" stop-color="#F3A424"/>
                         </linearGradient>
                         <linearGradient id="areaGrad" x1="160" y1="10" x2="160" y2="70" gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#275DDB" stop-opacity="0.12"/>
+                          <stop stop-color="#275DDB" stop-opacity="0.15"/>
                           <stop offset="1" stop-color="#275DDB" stop-opacity="0"/>
                         </linearGradient>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                          <feGaussianBlur stdDeviation="3" result="blur"/>
+                          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                        </filter>
                       </defs>
+                      
                       <!-- Area fill -->
                       <path class="ascent-area" id="ascent-area" d="M 10 58 L 40 55 L 70 50 L 100 52 L 130 44 L 160 38 L 195 28 L 230 22 L 265 15 L 300 8 L 300 70 L 10 70 Z" fill="url(#areaGrad)"/>
+                      
+                      <!-- Vertical Scanner Tracker Line -->
+                      <line id="tracker-line" x1="300" y1="0" x2="300" y2="70" stroke="rgba(39,93,219,0.35)" stroke-width="1.5" stroke-dasharray="3 3" style="opacity: 0; transition: opacity 0.2s;"/>
+                      
                       <!-- Line -->
-                      <path class="ascent-line" id="ascent-line" d="M 10 58 L 40 55 L 70 50 L 100 52 L 130 44 L 160 38 L 195 28 L 230 22 L 265 15 L 300 8" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <!-- Data points -->
-                      <circle class="ascent-dot" id="dot-0" cx="10" cy="58" r="3" fill="var(--color-slate)"/>
-                      <circle class="ascent-dot" id="dot-1" cx="70" cy="50" r="3" fill="#37D9F8"/>
-                      <circle class="ascent-dot" id="dot-2" cx="130" cy="44" r="3" fill="#37D9F8"/>
-                      <circle class="ascent-dot" id="dot-3" cx="195" cy="28" r="3" fill="#275DDB"/>
-                      <circle class="ascent-dot" id="dot-4" cx="265" cy="15" r="3" fill="#275DDB"/>
-                      <circle class="ascent-dot" id="dot-5" cx="300" cy="8" r="4" fill="#F3A424"/>
+                      <path class="ascent-line" id="ascent-line" d="M 10 58 L 40 55 L 70 50 L 100 52 L 130 44 L 160 38 L 195 28 L 230 22 L 265 15 L 300 8" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                      
+                      <!-- Interactive Data Points -->
+                      <g class="ascent-dots-group">
+                        <circle class="ascent-dot" data-month="Q1 Start (Jan)" data-val="$45,000 Revenue" data-pct="+12% YoY Growth" cx="10" cy="58" r="3.5" fill="#5E6680"/>
+                        <circle class="ascent-dot" data-month="Q1 End (Mar)" data-val="$92,000 Revenue" data-pct="+48% YoY Growth" cx="70" cy="50" r="3.5" fill="#37D9F8"/>
+                        <circle class="ascent-dot" data-month="Q2 Peak (Jun)" data-val="$145,000 Revenue" data-pct="+95% YoY Growth" cx="130" cy="44" r="3.5" fill="#37D9F8"/>
+                        <circle class="ascent-dot" data-month="Q3 Growth (Sep)" data-val="$230,000 Revenue" data-pct="+160% YoY Growth" cx="195" cy="28" r="4" fill="#275DDB"/>
+                        <circle class="ascent-dot" data-month="Q4 Scale (Nov)" data-val="$310,000 Revenue" data-pct="+225% YoY Growth" cx="265" cy="15" r="4" fill="#275DDB"/>
+                        <circle class="ascent-dot active" data-month="Q4 Record (Dec)" data-val="$385,000 Revenue" data-pct="+285% YoY Growth" cx="300" cy="8" r="5" fill="#F3A424" filter="url(#glow)"/>
+                      </g>
                     </svg>
                   </div>
 
@@ -1302,7 +1328,7 @@
 </footer>
   </div>
 
-  <script src="/assets/js/main.js?v=100"></script>
+  <script src="/assets/js/main.js?v=110"></script>
   <script src="/assets/js/partials.js"></script>
 </body>
 </html>
