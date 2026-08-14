@@ -1070,67 +1070,129 @@
 }
 
 /* --- Card Components --- */
-/* Service Card */
-.card-service {
-  background-color: var(--color-paper);
-  border: 1.5px solid var(--color-mist);
-  border-radius: var(--radius-lg);
-  padding: var(--space-7);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
+/* Service Card (New Reference Design) */
+.section-cloud {
+  background-color: #F4F6FC !important;
+  background-image: 
+    linear-gradient(135deg, rgba(39, 93, 219, 0.025) 0%, transparent 60%),
+    linear-gradient(225deg, rgba(55, 217, 248, 0.025) 0%, transparent 60%) !important;
   position: relative;
   overflow: hidden;
 }
 
-.card-service::before {
+.section-cloud::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background-color: var(--color-apex-blue);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 140px,
+    rgba(39, 93, 219, 0.012) 140px,
+    rgba(39, 93, 219, 0.012) 280px
+  );
+  pointer-events: none;
 }
 
-.card-service.paid::before { background-color: var(--color-apex-blue); }
-.card-service.organic::before { background-color: var(--color-signal-teal); }
-.card-service.web::before { background-color: var(--color-violet-ascent); }
-.card-service.brand::before { background-color: var(--color-ignite-coral); }
-
-.card-service:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(15, 20, 40, 0.12);
+/* Service Card Container */
+.card-service {
+  background: var(--color-paper, #FFFFFF);
+  border: 1.5px solid rgba(228, 231, 242, 0.9);
+  border-radius: 20px;
+  padding: 44px 24px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: calc(100% - 24px);
+  margin-top: 24px;
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 4px 16px rgba(15, 20, 40, 0.03);
 }
 
-.card-service.paid:hover { border-color: rgba(2, 99, 220, 0.4); }
-.card-service.organic:hover { border-color: rgba(6, 217, 249, 0.4); }
-.card-service.web:hover { border-color: rgba(3, 74, 174, 0.4); }
-.card-service.brand:hover { border-color: rgba(247, 163, 25, 0.4); }
+.card-service::before {
+  display: none;
+}
 
-.card-service:hover::before {
-  opacity: 1;
+/* Top Floating Diamond Badge Icon */
+.card-service-icon,
+.card-service-icon-badge {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #275DDB 0%, #37D9F8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(39, 93, 219, 0.35);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms ease;
+  z-index: 3;
+}
+
+.card-service-icon svg,
+.card-service-icon-badge svg {
+  transform: rotate(-45deg);
+  width: 24px;
+  height: 24px;
+  stroke: #FFFFFF !important;
+  fill: none;
+  stroke-width: 2px;
+  color: #FFFFFF !important;
+}
+
+/* Category-Specific Gradient Badges */
+.card-service.paid .card-service-icon,
+.card-service.paid .card-service-icon-badge {
+  background: linear-gradient(135deg, #275DDB 0%, #37D9F8 100%);
+  box-shadow: 0 8px 20px rgba(39, 93, 219, 0.35);
+}
+
+.card-service.organic .card-service-icon,
+.card-service.organic .card-service-icon-badge {
+  background: linear-gradient(135deg, #17B8A6 0%, #37D9F8 100%);
+  box-shadow: 0 8px 20px rgba(23, 184, 166, 0.35);
+}
+
+.card-service.web .card-service-icon,
+.card-service.web .card-service-icon-badge {
+  background: linear-gradient(135deg, #1D45AD 0%, #275DDB 100%);
+  box-shadow: 0 8px 20px rgba(29, 69, 173, 0.35);
+}
+
+.card-service.brand .card-service-icon,
+.card-service.brand .card-service-icon-badge {
+  background: linear-gradient(135deg, #F3A424 0%, #FF6B4D 100%);
+  box-shadow: 0 8px 20px rgba(243, 164, 36, 0.35);
 }
 
 .card-service-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--space-5);
+  justify-content: center;
+  width: 100%;
+  margin-bottom: var(--space-2);
 }
 
 .card-service-category-tag {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 4px 10px;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
   border-radius: var(--radius-pill);
+  margin-bottom: 8px;
+  display: inline-block;
 }
 
 .card-service.paid .card-service-category-tag { background: var(--color-blue-tint); color: var(--color-apex-blue); }
@@ -1138,55 +1200,56 @@
 .card-service.web .card-service-category-tag { background: var(--color-violet-tint); color: var(--color-violet-ascent); }
 .card-service.brand .card-service-category-tag { background: var(--color-coral-tint); color: var(--color-ignite-coral); }
 
-.card-service-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-cloud);
-  transition: transform var(--transition-fast);
-}
-
-.card-service:hover .card-service-icon {
-  transform: scale(1.08);
-}
-
-.card-service-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
-.card-service.paid .card-service-icon { color: var(--color-apex-blue); background-color: var(--color-blue-tint); }
-.card-service.organic .card-service-icon { color: var(--color-signal-teal); background-color: var(--color-teal-tint); }
-.card-service.web .card-service-icon { color: var(--color-violet-ascent); background-color: var(--color-violet-tint); }
-.card-service.brand .card-service-icon { color: var(--color-ignite-coral); background-color: var(--color-coral-tint); }
-
 .card-service h3 {
-  font-size: 1.25rem;
-  margin-bottom: var(--space-2);
+  font-family: var(--font-heading, 'Bricolage Grotesque', sans-serif);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  margin-top: 4px;
+  margin-bottom: 8px;
   color: var(--color-ink);
+  text-align: center;
 }
+
+/* Underline Accent Line below Title */
+.card-service-accent-bar,
+.card-service h3::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: linear-gradient(90deg, #275DDB, #37D9F8);
+  border-radius: 2px;
+  margin: 10px auto 14px auto;
+  transition: width 350ms ease;
+}
+
+.card-service.organic .card-service-accent-bar,
+.card-service.organic h3::after { background: linear-gradient(90deg, #17B8A6, #37D9F8); }
+.card-service.web .card-service-accent-bar,
+.card-service.web h3::after { background: linear-gradient(90deg, #1D45AD, #275DDB); }
+.card-service.brand .card-service-accent-bar,
+.card-service.brand h3::after { background: linear-gradient(90deg, #F3A424, #FF6B4D); }
 
 .card-service p {
   font-size: 0.875rem;
   color: var(--color-slate);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
   flex-grow: 1;
-  line-height: 1.5;
+  line-height: 1.55;
+  text-align: center;
 }
 
 .card-service-link {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--color-apex-blue);
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  justify-content: center;
+  gap: 6px;
   margin-top: auto;
-  padding-top: var(--space-3);
+  padding-top: 8px;
 }
 
 .card-service.organic .card-service-link { color: var(--color-signal-teal); }
@@ -1194,13 +1257,79 @@
 .card-service.brand .card-service-link { color: var(--color-ignite-coral); }
 
 .card-service-link svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   transition: transform var(--transition-fast);
+}
+
+/* Hover Interactions */
+.card-service:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(15, 20, 40, 0.1);
+  border-color: rgba(39, 93, 219, 0.3);
+}
+
+.card-service:hover .card-service-icon,
+.card-service:hover .card-service-icon-badge {
+  transform: translateX(-50%) rotate(45deg) scale(1.12);
+  box-shadow: 0 12px 28px rgba(39, 93, 219, 0.45);
+}
+
+.card-service:hover .card-service-accent-bar,
+.card-service:hover h3::after {
+  width: 52px;
 }
 
 .card-service:hover .card-service-link svg {
   transform: translateX(4px);
+}
+
+/* Slider Track Indicator (Bottom Indicator from Reference) */
+.services-slider-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.services-slider-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-mist, #E4E7F2);
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ink, #171C31);
+  cursor: pointer;
+  transition: all 300ms ease;
+  box-shadow: 0 2px 8px rgba(15, 20, 40, 0.04);
+}
+
+.services-slider-btn:hover {
+  border-color: var(--color-apex-blue, #275DDB);
+  color: var(--color-apex-blue, #275DDB);
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(39, 93, 219, 0.15);
+}
+
+.services-slider-track {
+  width: 240px;
+  height: 4px;
+  background: var(--color-mist, #E4E7F2);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-slider-progress {
+  height: 100%;
+  width: 45%;
+  background: linear-gradient(90deg, #275DDB, #37D9F8);
+  border-radius: 2px;
+  transition: width 300ms ease;
 }
 
 /* Stat Card */
