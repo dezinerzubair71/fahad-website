@@ -13,9 +13,11 @@ window.initMainApp = function () {
   initHeroInteractive();
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => window.initMainApp());
+} else {
   window.initMainApp();
-});
+}
 
 
 /* Sticky Header Scroll Observer */
@@ -287,51 +289,63 @@ function initHeroInteractive() {
     if (!el) return;
     const isDecimal = String(target).includes('.');
     const step = isDecimal ? 0.1 : 1;
-    const totalSteps = target / step;
-    const stepTime = Math.max(Math.floor(duration / totalSteps), 16);
+    const totalSteps = Math.abs(target / step);
+    const stepTime = Math.max(Math.floor(duration / totalSteps), 14);
     let current = 0;
-    setTimeout(() => {
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) { current = target; clearInterval(timer); }
-        el.textContent = (isDecimal ? current.toFixed(1) : Math.round(current)) + suffix;
-      }, stepTime);
-    }, 700);
+    
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { 
+        current = target; 
+        clearInterval(timer); 
+      }
+      el.textContent = (isDecimal ? current.toFixed(1) : Math.round(current)) + suffix;
+    }, stepTime);
   }
 
-  animateCounter(document.getElementById('counter-satisfaction'), 98, '%', 1600);
-  animateCounter(document.getElementById('counter-leads'), 285, '%', 1400);
-  animateCounter(document.getElementById('counter-roas'), 3.8, 'X', 1200);
-  animateCounter(document.getElementById('counter-roas-badge'), 3.8, 'X', 1400);
-  animateCounter(document.getElementById('counter-conv'), 42, '%', 1000);
+  function startAllAnimations() {
+    animateCounter(document.getElementById('counter-satisfaction'), 98, '%', 1200);
+    animateCounter(document.getElementById('counter-leads'), 285, '%', 1200);
+    animateCounter(document.getElementById('counter-roas'), 3.8, 'X', 1000);
+    animateCounter(document.getElementById('counter-roas-badge'), 3.8, 'X', 1200);
+    animateCounter(document.getElementById('counter-conv'), 42, '%', 1000);
 
-  const growthBar = document.getElementById('growth-bar');
-  const growthPct = document.getElementById('growth-pct');
-  setTimeout(() => {
+    const growthBar = document.getElementById('growth-bar');
+    const growthPct = document.getElementById('growth-pct');
     if (growthBar) growthBar.style.width = '87%';
-    let p = 0;
-    const pt = setInterval(() => {
-      p++; if (p >= 87) { p = 87; clearInterval(pt); }
-      if (growthPct) growthPct.textContent = p + '%';
-    }, 14);
-  }, 1000);
+    if (growthPct) {
+      let p = 0;
+      const pt = setInterval(() => {
+        p += 2; 
+        if (p >= 87) { p = 87; clearInterval(pt); }
+        growthPct.textContent = p + '%';
+      }, 20);
+    }
 
+    const ascentLine = document.getElementById('ascent-line');
+    const ascentArea = document.getElementById('ascent-area');
+    const chartValue = document.getElementById('chart-value');
+    const dots = document.querySelectorAll('.ascent-dot');
+
+    if (ascentLine) ascentLine.classList.add('drawn');
+    if (ascentArea) ascentArea.classList.add('visible');
+    if (chartValue) chartValue.classList.add('visible');
+
+    dots.forEach((dot, i) => {
+      setTimeout(() => { dot.classList.add('visible'); }, 200 + i * 100);
+    });
+  }
+
+  // Start immediately
+  startAllAnimations();
+
+  // Dashboard Hover Re-trigger
+  const dashMain = document.getElementById('dashboard-main');
   const ascentLine = document.getElementById('ascent-line');
   const ascentArea = document.getElementById('ascent-area');
   const chartValue = document.getElementById('chart-value');
   const dots = document.querySelectorAll('.ascent-dot');
 
-  setTimeout(() => {
-    if (ascentLine) ascentLine.classList.add('drawn');
-    if (ascentArea) ascentArea.classList.add('visible');
-    if (chartValue) chartValue.classList.add('visible');
-  }, 900);
-
-  dots.forEach((dot, i) => {
-    setTimeout(() => { dot.classList.add('visible'); }, 1200 + i * 200);
-  });
-
-  const dashMain = document.getElementById('dashboard-main');
   if (dashMain && ascentLine) {
     dashMain.addEventListener('mouseenter', () => {
       ascentLine.classList.remove('drawn');
@@ -345,7 +359,7 @@ function initHeroInteractive() {
           if (ascentArea) ascentArea.classList.add('visible');
           if (chartValue) chartValue.classList.add('visible');
           dots.forEach((dot, i) => {
-            setTimeout(() => { dot.classList.add('visible'); }, 300 + i * 150);
+            setTimeout(() => { dot.classList.add('visible'); }, 200 + i * 100);
           });
         });
       });

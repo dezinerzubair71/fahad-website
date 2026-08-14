@@ -1318,6 +1318,91 @@
   transition: width 300ms ease;
 }
 
+/* ===== LUXURY SERVICE CATEGORY DIVIDER HEADINGS ===== */
+.service-category-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.service-category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(39, 93, 219, 0.08) 0%, rgba(55, 217, 248, 0.08) 100%);
+  border: 1px solid rgba(39, 93, 219, 0.18);
+  color: var(--color-apex-blue, #275DDB);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(39, 93, 219, 0.06);
+}
+
+.service-category-header.paid .service-category-badge {
+  background: linear-gradient(135deg, rgba(39, 93, 219, 0.08) 0%, rgba(55, 217, 248, 0.08) 100%);
+  border-color: rgba(39, 93, 219, 0.2);
+  color: #275DDB;
+}
+
+.service-category-header.organic .service-category-badge {
+  background: linear-gradient(135deg, rgba(23, 184, 166, 0.08) 0%, rgba(55, 217, 248, 0.08) 100%);
+  border-color: rgba(23, 184, 166, 0.2);
+  color: #17B8A6;
+}
+
+.service-category-header.web .service-category-badge {
+  background: linear-gradient(135deg, rgba(29, 69, 173, 0.08) 0%, rgba(39, 93, 219, 0.08) 100%);
+  border-color: rgba(29, 69, 173, 0.2);
+  color: #1D45AD;
+}
+
+.service-category-header.brand .service-category-badge {
+  background: linear-gradient(135deg, rgba(243, 164, 36, 0.08) 0%, rgba(255, 107, 77, 0.08) 100%);
+  border-color: rgba(243, 164, 36, 0.2);
+  color: #F3A424;
+}
+
+.service-category-title {
+  font-family: var(--font-heading, 'Bricolage Grotesque', sans-serif);
+  font-size: 1.1875rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-ink, #171C31);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.service-category-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(39, 93, 219, 0.25) 0%, rgba(228, 231, 242, 0.4) 100%);
+  border-radius: 2px;
+}
+
+.service-category-header.paid .service-category-line {
+  background: linear-gradient(90deg, rgba(39, 93, 219, 0.3) 0%, rgba(228, 231, 242, 0.3) 100%);
+}
+
+.service-category-header.organic .service-category-line {
+  background: linear-gradient(90deg, rgba(23, 184, 166, 0.3) 0%, rgba(228, 231, 242, 0.3) 100%);
+}
+
+.service-category-header.web .service-category-line {
+  background: linear-gradient(90deg, rgba(29, 69, 173, 0.3) 0%, rgba(228, 231, 242, 0.3) 100%);
+}
+
+.service-category-header.brand .service-category-line {
+  background: linear-gradient(90deg, rgba(243, 164, 36, 0.3) 0%, rgba(228, 231, 242, 0.3) 100%);
+}
+
 /* Stat Card */
 .card-stat {
   background-color: var(--color-paper);
