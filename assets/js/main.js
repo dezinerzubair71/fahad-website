@@ -10,6 +10,7 @@ window.initMainApp = function () {
   initAscentLineAnimation();
   initFAQAccordions();
   initFormValidations();
+  initHeroInteractive();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -276,3 +277,95 @@ document.addEventListener('click', (e) => {
     }
   }
 });
+
+/* Interactive Showcase Hero Section */
+function initHeroInteractive() {
+  const heroSection = document.getElementById('hero-section');
+  if (!heroSection) return;
+
+  function animateCounter(el, target, suffix, duration) {
+    if (!el) return;
+    const isDecimal = String(target).includes('.');
+    const step = isDecimal ? 0.1 : 1;
+    const totalSteps = target / step;
+    const stepTime = Math.max(Math.floor(duration / totalSteps), 16);
+    let current = 0;
+    setTimeout(() => {
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = (isDecimal ? current.toFixed(1) : Math.round(current)) + suffix;
+      }, stepTime);
+    }, 700);
+  }
+
+  animateCounter(document.getElementById('counter-satisfaction'), 98, '%', 1600);
+  animateCounter(document.getElementById('counter-leads'), 285, '%', 1400);
+  animateCounter(document.getElementById('counter-roas'), 3.8, 'X', 1200);
+  animateCounter(document.getElementById('counter-roas-badge'), 3.8, 'X', 1400);
+  animateCounter(document.getElementById('counter-conv'), 42, '%', 1000);
+
+  const growthBar = document.getElementById('growth-bar');
+  const growthPct = document.getElementById('growth-pct');
+  setTimeout(() => {
+    if (growthBar) growthBar.style.width = '87%';
+    let p = 0;
+    const pt = setInterval(() => {
+      p++; if (p >= 87) { p = 87; clearInterval(pt); }
+      if (growthPct) growthPct.textContent = p + '%';
+    }, 14);
+  }, 1000);
+
+  const ascentLine = document.getElementById('ascent-line');
+  const ascentArea = document.getElementById('ascent-area');
+  const chartValue = document.getElementById('chart-value');
+  const dots = document.querySelectorAll('.ascent-dot');
+
+  setTimeout(() => {
+    if (ascentLine) ascentLine.classList.add('drawn');
+    if (ascentArea) ascentArea.classList.add('visible');
+    if (chartValue) chartValue.classList.add('visible');
+  }, 900);
+
+  dots.forEach((dot, i) => {
+    setTimeout(() => { dot.classList.add('visible'); }, 1200 + i * 200);
+  });
+
+  const dashMain = document.getElementById('dashboard-main');
+  if (dashMain && ascentLine) {
+    dashMain.addEventListener('mouseenter', () => {
+      ascentLine.classList.remove('drawn');
+      if (ascentArea) ascentArea.classList.remove('visible');
+      if (chartValue) chartValue.classList.remove('visible');
+      dots.forEach(d => d.classList.remove('visible'));
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          ascentLine.classList.add('drawn');
+          if (ascentArea) ascentArea.classList.add('visible');
+          if (chartValue) chartValue.classList.add('visible');
+          dots.forEach((dot, i) => {
+            setTimeout(() => { dot.classList.add('visible'); }, 300 + i * 150);
+          });
+        });
+      });
+    });
+  }
+
+  const scene = document.getElementById('showcase-scene');
+  if (scene && window.innerWidth > 768) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+      const ry = ((mx - cx) / cx) * 5;
+      const rx = ((cy - my) / cy) * 3;
+      scene.style.transform = 'rotateY(' + ry + 'deg) rotateX(' + rx + 'deg)';
+    });
+    heroSection.addEventListener('mouseleave', () => {
+      scene.style.transform = 'rotateY(0deg) rotateX(0deg)';
+    });
+  }
+}

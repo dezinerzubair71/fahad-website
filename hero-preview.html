@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Preview - Apex Brand Works</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary-blue: #275DDB;
+            --deep-blue: #1D45AD;
+            --cyan: #37D9F8;
+            --orange: #F3A424;
+            --dark-navy: #171C31;
+            --muted-slate: #5E6680;
+            --off-white: #F6F7FB;
+            --white: #FFFFFF;
+            --mist: #E4E7F2;
+            --gradient-cta: linear-gradient(135deg, #275DDB 0%, #37D9F8 100%);
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--dark-navy);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-family: 'Bricolage Grotesque', system-ui, sans-serif; }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            padding: 130px 0 56px;
+            background: linear-gradient(180deg, var(--white) 0%, var(--off-white) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -150px; right: -150px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(39,93,219,0.035) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        /* ===== LEFT ===== */
+        .hero-left { position: relative; z-index: 2; }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, rgba(39,93,219,0.06) 0%, rgba(55,217,248,0.06) 100%);
+            border: 1px solid rgba(39,93,219,0.1);
+            border-radius: 999px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            opacity: 0; transform: translateY(14px);
+            animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.1s;
+        }
+
+        .eyebrow svg { flex-shrink: 0; }
+
+        .hero-title {
+            font-size: clamp(2.25rem, 4vw, 3.25rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            color: var(--dark-navy);
+            margin-bottom: 16px;
+            opacity: 0; transform: translateY(14px);
+            animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.18s;
+        }
+
+        .hero-title .gradient-text {
+            background: var(--gradient-cta);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--muted-slate);
+            max-width: 500px;
+            margin-bottom: 28px;
+            opacity: 0; transform: translateY(14px);
+            animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.26s;
+        }
+
+        .cta-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+            opacity: 0; transform: translateY(14px);
+            animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.34s;
+        }
+
+        .btn-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 13px 28px;
+            background: var(--gradient-cta);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600; font-size: 0.875rem;
+            text-decoration: none; border-radius: 999px;
+            border: none; cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+            box-shadow: 0 6px 20px -6px rgba(39,93,219,0.45);
+            position: relative; overflow: hidden;
+        }
+
+        .btn-cta::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, #1D45AD 0%, #275DDB 100%);
+            opacity: 0; transition: opacity 0.35s ease; border-radius: inherit;
+        }
+
+        .btn-cta span, .btn-cta svg { position: relative; z-index: 1; }
+
+        .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px -6px rgba(39,93,219,0.5); }
+        .btn-cta:hover::after { opacity: 1; }
+
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.875rem;
+            color: var(--dark-navy); text-decoration: none; cursor: pointer;
+            padding: 13px 28px; border-radius: 999px;
+            border: 1.5px solid var(--mist); background: var(--white);
+            transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-blue); color: var(--primary-blue);
+            box-shadow: 0 4px 16px rgba(39,93,219,0.1); transform: translateY(-2px);
+        }
+
+        .btn-secondary svg {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-secondary:hover svg { transform: translateX(3px); }
+
+        .hero-note {
+            font-size: 0.75rem; color: var(--muted-slate);
+            opacity: 0; transform: translateY(14px);
+            animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.4s;
+        }
+
+        /* ===== TRUSTED ===== */
+        .trusted-section {
+            margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--mist);
+            opacity: 0; transform: translateY(14px);
+            animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.5s;
+        }
+
+        .trusted-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.625rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--muted-slate); margin-bottom: 16px; opacity: 0.6;
+        }
+
+        .trusted-logos { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+
+        .trusted-logo-item {
+            display: flex; align-items: center; gap: 6px;
+            opacity: 0.35; transition: opacity 0.3s ease; cursor: default;
+        }
+        .trusted-logo-item:hover { opacity: 0.65; }
+
+        .trusted-logo-mark {
+            width: 24px; height: 24px; border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .trusted-logo-name { font-weight: 700; font-size: 0.8125rem; color: var(--dark-navy); letter-spacing: -0.01em; }
+
+        /* ===== RIGHT - SHOWCASE ===== */
+        .hero-right {
+            position: relative; z-index: 1;
+            perspective: 1200px;
+            opacity: 0; transform: translateY(20px);
+            animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards 0.3s;
+        }
+
+        .showcase-scene {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 0.82;
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        /* --- DASHBOARD --- */
+        .dashboard-main {
+            position: absolute;
+            top: 6%; left: 0%; width: 90%;
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: 0 1px 2px rgba(23,28,49,0.04), 0 4px 20px rgba(23,28,49,0.07), 0 16px 48px rgba(23,28,49,0.06);
+            overflow: hidden; z-index: 2;
+            transition: all 0.45s cubic-bezier(0.16,1,0.3,1);
+            animation: floatA 7s ease-in-out infinite;
+        }
+
+        .dashboard-main:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1px 2px rgba(23,28,49,0.04), 0 12px 36px rgba(23,28,49,0.1), 0 24px 64px rgba(23,28,49,0.07);
+        }
+
+        .dash-toolbar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 16px; border-bottom: 1px solid var(--mist); background: var(--off-white);
+        }
+
+        .dash-dots { display: flex; gap: 5px; }
+        .dash-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .dash-dot:nth-child(1) { background: #FF6058; }
+        .dash-dot:nth-child(2) { background: #FFBE30; }
+        .dash-dot:nth-child(3) { background: #28CA42; }
+
+        .dash-title { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.6875rem; color: var(--dark-navy); }
+
+        .dash-nav { display: flex; gap: 12px; }
+        .dash-nav-item { font-size: 0.5625rem; color: var(--muted-slate); font-weight: 500; cursor: default; }
+        .dash-nav-item.active { color: var(--primary-blue); }
+
+        .dash-body { padding: 16px 16px 14px; }
+
+        /* --- Ascent Chart Area --- */
+        .dash-chart-area {
+            background: linear-gradient(135deg, #f0f3fa 0%, #e8ecf6 100%);
+            border-radius: 10px;
+            padding: 14px 16px 10px;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dash-chart-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .dash-chart-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.5rem; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--primary-blue); font-weight: 500;
+        }
+
+        .dash-chart-period {
+            font-size: 0.4375rem; color: var(--muted-slate); font-weight: 500;
+            padding: 2px 8px; background: rgba(255,255,255,0.7); border-radius: 999px;
+        }
+
+        .ascent-chart-svg {
+            width: 100%; height: 80px; display: block;
+        }
+
+        .ascent-line {
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            transition: stroke-dashoffset 2s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .ascent-line.drawn { stroke-dashoffset: 0; }
+
+        .ascent-area {
+            opacity: 0;
+            transition: opacity 1.5s ease 0.5s;
+        }
+
+        .ascent-area.visible { opacity: 1; }
+
+        .ascent-dot {
+            opacity: 0;
+            transition: opacity 0.4s ease, r 0.3s ease;
+        }
+
+        .ascent-dot.visible { opacity: 1; }
+        .ascent-dot:hover { r: 6; }
+
+        .dash-chart-value {
+            position: absolute;
+            top: 14px; right: 16px;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800; font-size: 1.25rem;
+            color: var(--primary-blue);
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.6s cubic-bezier(0.16,1,0.3,1) 0.8s;
+        }
+
+        .dash-chart-value.visible {
+            opacity: 1; transform: translateY(0);
+        }
+
+        .dash-chart-value small {
+            font-size: 0.5rem; font-weight: 500;
+            color: #28CA42; display: block;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* --- Dashboard Stats Row --- */
+        .dash-stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+        .dash-stat-mini {
+            text-align: center; padding: 10px 6px;
+            background: var(--off-white); border-radius: 8px;
+            transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+            cursor: default; position: relative; overflow: hidden;
+        }
+
+        .dash-stat-mini::after {
+            content: '';
+            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 0; height: 2px; border-radius: 2px;
+            transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .dash-stat-mini:nth-child(1)::after { background: var(--primary-blue); }
+        .dash-stat-mini:nth-child(2)::after { background: var(--cyan); }
+        .dash-stat-mini:nth-child(3)::after { background: var(--orange); }
+
+        .dash-stat-mini:hover {
+            background: var(--white);
+            box-shadow: 0 4px 16px rgba(23,28,49,0.08);
+            transform: translateY(-2px);
+        }
+
+        .dash-stat-mini:hover::after { width: 60%; }
+
+        .dash-stat-num {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800; font-size: 0.9375rem; margin-bottom: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        .dash-stat-mini:hover .dash-stat-num { transform: scale(1.12); }
+
+        .dash-stat-num.blue { color: var(--primary-blue); }
+        .dash-stat-num.cyan { color: var(--cyan); }
+        .dash-stat-num.orange { color: var(--orange); }
+
+        .dash-stat-label { font-size: 0.5rem; color: var(--muted-slate); font-weight: 500; }
+
+        .dash-stat-spark {
+            display: block; margin: 4px auto 0; width: 40px; height: 14px;
+            opacity: 0; transform: translateY(4px);
+            transition: all 0.35s ease;
+        }
+
+        .dash-stat-mini:hover .dash-stat-spark {
+            opacity: 1; transform: translateY(0);
+        }
+
+        /* --- FLOATING BADGES --- */
+        .float-badge {
+            position: absolute;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 1px 2px rgba(23,28,49,0.03), 0 6px 20px rgba(23,28,49,0.07);
+            transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+            cursor: default;
+        }
+
+        .float-badge:hover {
+            transform: translateY(-5px) scale(1.04);
+            box-shadow: 0 1px 2px rgba(23,28,49,0.03), 0 12px 36px rgba(23,28,49,0.12);
+        }
+
+        /* -- Satisfaction badge -- */
+        .badge-stat {
+            top: -3%; right: -4%;
+            padding: 12px 16px;
+            display: flex; align-items: center; gap: 10px;
+            z-index: 5;
+            animation: floatB 6s ease-in-out infinite 0.4s;
+        }
+
+        .badge-icon-circle {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+            position: relative;
+        }
+
+        .badge-icon-circle.teal { background: linear-gradient(135deg, rgba(55,217,248,0.12), rgba(39,93,219,0.08)); }
+        .badge-icon-circle.green { background: rgba(40,202,66,0.10); }
+        .badge-icon-circle.orange-bg { background: rgba(243,164,36,0.10); }
+
+        /* Satisfaction ring animation */
+        .sat-ring {
+            position: absolute; top: -4px; left: -4px;
+            width: 42px; height: 42px;
+        }
+
+        .sat-ring-path {
+            fill: none;
+            stroke: var(--mist);
+            stroke-width: 2.5;
+        }
+
+        .sat-ring-progress {
+            fill: none;
+            stroke: var(--cyan);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-dasharray: 120;
+            stroke-dashoffset: 120;
+            transition: stroke-dashoffset 1.2s cubic-bezier(0.16,1,0.3,1);
+            transform: rotate(-90deg);
+            transform-origin: center;
+        }
+
+        .badge-stat:hover .sat-ring-progress { stroke-dashoffset: 2.4; }
+
+        .badge-stat-value {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800; font-size: 1.125rem;
+            color: var(--dark-navy); line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .badge-stat:hover .badge-stat-value { color: var(--primary-blue); }
+
+        .badge-stat-label { font-size: 0.5625rem; color: var(--muted-slate); font-weight: 500; margin-top: 1px; }
+
+        .badge-stat-stars {
+            display: flex; gap: 2px; margin-top: 3px;
+            opacity: 0; transform: translateY(4px);
+            transition: all 0.35s cubic-bezier(0.16,1,0.3,1) 0.2s;
+        }
+
+        .badge-stat:hover .badge-stat-stars { opacity: 1; transform: translateY(0); }
+
+        .star-icon { width: 8px; height: 8px; }
+
+        /* -- Growth badge -- */
+        .badge-growth {
+            bottom: 2%; left: -6%;
+            padding: 12px 16px;
+            z-index: 5; min-width: 170px;
+            animation: floatC 7s ease-in-out infinite 0.8s;
+        }
+
+        .badge-growth-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+
+        .badge-growth-title { font-weight: 700; font-size: 0.6875rem; color: var(--dark-navy); }
+        .badge-growth-sub { font-size: 0.5625rem; color: var(--muted-slate); }
+
+        .growth-bar-bg {
+            width: 100%; height: 5px;
+            background: var(--off-white);
+            border-radius: 3px; overflow: hidden; margin-bottom: 5px;
+        }
+
+        .growth-bar-fill {
+            height: 100%; width: 0%;
+            background: var(--gradient-cta);
+            border-radius: 3px;
+            transition: width 1s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .badge-growth:hover .growth-bar-fill { width: 100% !important; }
+
+        .growth-bar-labels {
+            display: flex; justify-content: space-between;
+            font-size: 0.5rem; color: var(--muted-slate); font-weight: 500;
+        }
+        .growth-bar-labels .val { font-weight: 700; color: var(--primary-blue); }
+
+        .growth-channels {
+            display: flex; gap: 4px; margin-top: 8px;
+            opacity: 0; max-height: 0;
+            transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+            overflow: hidden;
+        }
+
+        .badge-growth:hover .growth-channels {
+            opacity: 1; max-height: 40px;
+        }
+
+        .growth-ch-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.375rem; text-transform: uppercase;
+            letter-spacing: 0.05em; font-weight: 500;
+            padding: 3px 6px; border-radius: 999px;
+        }
+
+        .growth-ch-tag.seo { background: rgba(39,93,219,0.08); color: var(--primary-blue); }
+        .growth-ch-tag.ads { background: rgba(55,217,248,0.08); color: #1ba8c4; }
+        .growth-ch-tag.social { background: rgba(243,164,36,0.08); color: #c98516; }
+
+        /* -- ROAS badge -- */
+        .badge-roas {
+            bottom: -6%; right: 10%;
+            padding: 10px 14px;
+            display: flex; align-items: center; gap: 10px;
+            z-index: 5;
+            animation: floatD 6.5s ease-in-out infinite 1.2s;
+        }
+
+        .badge-roas-value {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800; font-size: 1rem;
+            color: var(--orange); line-height: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .badge-roas:hover .badge-roas-value { transform: scale(1.15); }
+
+        .badge-roas-label { font-size: 0.5625rem; color: var(--muted-slate); font-weight: 500; margin-top: 1px; }
+
+        .roas-spark {
+            display: block; width: 44px; height: 16px;
+            opacity: 0; transform: translateX(-6px);
+            transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+            margin-top: 4px;
+        }
+
+        .badge-roas:hover .roas-spark { opacity: 1; transform: translateX(0); }
+
+        .roas-spark-line {
+            stroke-dasharray: 80;
+            stroke-dashoffset: 80;
+            transition: stroke-dashoffset 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s;
+        }
+
+        .badge-roas:hover .roas-spark-line { stroke-dashoffset: 0; }
+
+        /* -- Notification badge (new) -- */
+        .badge-notif {
+            top: 38%; right: -10%;
+            padding: 10px 14px;
+            display: flex; align-items: center; gap: 8px;
+            z-index: 4;
+            animation: floatE 5.5s ease-in-out infinite 0.6s;
+            border-left: 3px solid var(--cyan);
+        }
+
+        .badge-notif-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #28CA42;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .badge-notif-text { font-size: 0.5625rem; color: var(--dark-navy); font-weight: 600; }
+        .badge-notif-sub { font-size: 0.4375rem; color: var(--muted-slate); font-weight: 500; margin-top: 1px; }
+
+        .badge-notif-action {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.375rem; text-transform: uppercase;
+            letter-spacing: 0.06em; font-weight: 500;
+            color: var(--primary-blue);
+            margin-top: 4px;
+            opacity: 0; transform: translateY(4px);
+            transition: all 0.3s ease;
+        }
+
+        .badge-notif:hover .badge-notif-action { opacity: 1; transform: translateY(0); }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes floatA { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+        @keyframes floatB { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+        @keyframes floatC { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        @keyframes floatD { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes floatE { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero { padding: 110px 0 48px; }
+            .hero-grid { gap: 36px; }
+            .container { padding: 0 28px; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 100px 0 40px; }
+            .container { padding: 0 20px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+            .hero-title { font-size: clamp(2rem, 7vw, 2.5rem); }
+            .hero-desc { font-size: 0.9375rem; }
+            .cta-row { gap: 12px; }
+            .btn-cta { padding: 12px 24px; font-size: 0.8125rem; }
+            .btn-secondary { padding: 12px 24px; font-size: 0.8125rem; }
+            .trusted-logos { gap: 20px; }
+            .trusted-logo-name { font-size: 0.75rem; }
+            .trusted-logo-mark { width: 20px; height: 20px; border-radius: 5px; }
+
+            /* -- Mobile Showcase Container -- */
+            .hero-right {
+                perspective: none;
+                max-width: 100%;
+                margin: 0 auto;
+                overflow: hidden;
+                padding: 16px 8px 20px;
+            }
+
+            .showcase-scene {
+                position: relative;
+                aspect-ratio: auto;
+                transform-style: flat;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+
+            /* -- Dashboard: full width, static -- */
+            .dashboard-main {
+                position: relative;
+                top: auto; left: auto;
+                width: 100%;
+                animation: none;
+                border-radius: 12px;
+            }
+
+            .dash-toolbar { padding: 8px 14px; }
+            .dash-dot { width: 6px; height: 6px; }
+            .dash-title { font-size: 0.625rem; }
+            .dash-nav-item { font-size: 0.5rem; }
+            .dash-body { padding: 12px 14px 12px; }
+            .dash-chart-area { padding: 10px 12px 6px; margin-bottom: 8px; }
+            .dash-chart-title { font-size: 0.5rem; }
+            .ascent-chart-svg { height: 50px; }
+            .dash-chart-value { font-size: 0.9375rem; top: 10px; right: 12px; }
+            .dash-chart-value small { font-size: 0.375rem; }
+            .dash-stats-row { gap: 6px; }
+            .dash-stat-mini { padding: 8px 4px; }
+            .dash-stat-num { font-size: 0.8125rem; }
+            .dash-stat-label { font-size: 0.4375rem; }
+            .dash-stat-spark { width: 30px; height: 10px; }
+
+            /* -- Badges: flow as a row below dashboard -- */
+            .float-badge {
+                position: relative;
+                top: auto !important; left: auto !important;
+                right: auto !important; bottom: auto !important;
+                animation: none !important;
+            }
+
+            .badge-stat, .badge-growth, .badge-roas {
+                width: 100%;
+            }
+
+            .badge-stat {
+                padding: 12px 16px;
+                flex-direction: row;
+            }
+
+            .badge-icon-circle { width: 30px; height: 30px; }
+            .sat-ring { width: 38px; height: 38px; top: -3px; left: -3px; }
+            .badge-stat-value { font-size: 1rem; }
+            .badge-stat-label { font-size: 0.5625rem; }
+            .badge-stat-stars { display: none; }
+
+            .badge-growth {
+                padding: 12px 16px;
+                min-width: auto;
+            }
+            .badge-growth-title { font-size: 0.6875rem; }
+            .badge-growth-sub { font-size: 0.5rem; }
+            .growth-bar-bg { height: 5px; }
+            .growth-bar-labels { font-size: 0.5rem; }
+            .growth-channels .growth-ch-tag { font-size: 0.375rem; padding: 3px 6px; }
+
+            .badge-roas {
+                padding: 12px 16px;
+            }
+            .badge-roas-value { font-size: 1rem; }
+            .badge-roas-label { font-size: 0.5625rem; }
+
+            .badge-notif {
+                width: 100%;
+                padding: 10px 14px;
+                border-left-width: 2px;
+            }
+            .badge-notif-text { font-size: 0.5625rem; }
+            .badge-notif-sub { font-size: 0.4375rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 90px 0 32px; }
+            .hero-title { font-size: 1.75rem; margin-bottom: 12px; }
+            .hero-desc { font-size: 0.875rem; margin-bottom: 20px; }
+            .eyebrow { font-size: 0.5625rem; padding: 5px 12px; margin-bottom: 14px; }
+            .cta-row { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+            .trusted-section { margin-top: 28px; padding-top: 18px; }
+            .trusted-logos { gap: 16px; }
+
+            .hero-right { padding: 12px 4px 16px; }
+            .showcase-scene { gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero" id="hero-section">
+        <div class="container">
+            <div class="hero-grid">
+
+                <!-- LEFT -->
+                <div class="hero-left">
+                    <div class="eyebrow">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
+                        </svg>
+                        360 Digital Growth Agency
+                    </div>
+
+                    <h1 class="hero-title">Every Channel.<br>One Strategy.<br><span class="gradient-text">Real Growth.</span></h1>
+
+                    <p class="hero-desc">Apex Brand Works is a digital marketing agency delivering 360 growth solutions. We combine performance paid media, technical SEO, brand identity, and custom web builds into a single revenue-generating engine.</p>
+
+                    <div class="cta-row">
+                        <a href="/contact" class="btn-cta">
+                            <span>Get a Free Consultation</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1;">
+                                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                        <a href="#services-overview" class="btn-secondary">
+                            Explore All Services
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <p class="hero-note">No commitment required -- free 360 audit included with every consultation.</p>
+
+                    <div class="trusted-section">
+                        <div class="trusted-label">Trusted by 150+ brands worldwide</div>
+                        <div class="trusted-logos">
+                            <div class="trusted-logo-item">
+                                <div class="trusted-logo-mark" style="background: rgba(39,93,219,0.08);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round"><path d="M12 2L15 8.5L22 9.5L17 14.5L18 21.5L12 18L6 21.5L7 14.5L2 9.5L9 8.5Z"/></svg></div>
+                                <span class="trusted-logo-name">Stellar Co</span>
+                            </div>
+                            <div class="trusted-logo-item">
+                                <div class="trusted-logo-mark" style="background: rgba(55,217,248,0.08);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m-7.07-15.07l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4m-15.07 7.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg></div>
+                                <span class="trusted-logo-name">NovaTech</span>
+                            </div>
+                            <div class="trusted-logo-item">
+                                <div class="trusted-logo-mark" style="background: rgba(243,164,36,0.08);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
+                                <span class="trusted-logo-name">CloudBase</span>
+                            </div>
+                            <div class="trusted-logo-item">
+                                <div class="trusted-logo-mark" style="background: rgba(29,69,173,0.08);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--deep-blue)" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                                <span class="trusted-logo-name">Kinetic</span>
+                            </div>
+                            <div class="trusted-logo-item">
+                                <div class="trusted-logo-mark" style="background: rgba(39,93,219,0.08);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                                <span class="trusted-logo-name">Prismify</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT -->
+                <div class="hero-right" id="hero-right">
+                    <div class="showcase-scene" id="showcase-scene">
+
+                        <!-- Dashboard -->
+                        <div class="dashboard-main" id="dashboard-main">
+                            <div class="dash-toolbar">
+                                <div class="dash-dots"><div class="dash-dot"></div><div class="dash-dot"></div><div class="dash-dot"></div></div>
+                                <span class="dash-title">Apex Ascent Engine</span>
+                                <div class="dash-nav">
+                                    <span class="dash-nav-item active">Overview</span>
+                                    <span class="dash-nav-item">Channels</span>
+                                    <span class="dash-nav-item">Reports</span>
+                                </div>
+                            </div>
+                            <div class="dash-body">
+                                <!-- Ascent Chart -->
+                                <div class="dash-chart-area">
+                                    <div class="dash-chart-header">
+                                        <span class="dash-chart-title">Revenue Growth</span>
+                                        <span class="dash-chart-period">Last 12 Months</span>
+                                    </div>
+                                    <div class="dash-chart-value" id="chart-value">
+                                        +285%
+                                        <small>vs last year</small>
+                                    </div>
+                                    <svg class="ascent-chart-svg" viewBox="0 0 320 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="lineGrad" x1="0" y1="60" x2="320" y2="10" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#5E6680"/>
+                                                <stop offset="0.35" stop-color="#37D9F8"/>
+                                                <stop offset="1" stop-color="#275DDB"/>
+                                            </linearGradient>
+                                            <linearGradient id="areaGrad" x1="160" y1="10" x2="160" y2="70" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#275DDB" stop-opacity="0.12"/>
+                                                <stop offset="1" stop-color="#275DDB" stop-opacity="0"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <!-- Area fill -->
+                                        <path class="ascent-area" id="ascent-area" d="M 10 58 L 40 55 L 70 50 L 100 52 L 130 44 L 160 38 L 195 28 L 230 22 L 265 15 L 300 8 L 300 70 L 10 70 Z" fill="url(#areaGrad)"/>
+                                        <!-- Line -->
+                                        <path class="ascent-line" id="ascent-line" d="M 10 58 L 40 55 L 70 50 L 100 52 L 130 44 L 160 38 L 195 28 L 230 22 L 265 15 L 300 8" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <!-- Data points -->
+                                        <circle class="ascent-dot" id="dot-0" cx="10" cy="58" r="3" fill="var(--muted-slate)"/>
+                                        <circle class="ascent-dot" id="dot-1" cx="70" cy="50" r="3" fill="#37D9F8"/>
+                                        <circle class="ascent-dot" id="dot-2" cx="130" cy="44" r="3" fill="#37D9F8"/>
+                                        <circle class="ascent-dot" id="dot-3" cx="195" cy="28" r="3" fill="#275DDB"/>
+                                        <circle class="ascent-dot" id="dot-4" cx="265" cy="15" r="3" fill="#275DDB"/>
+                                        <circle class="ascent-dot" id="dot-5" cx="300" cy="8" r="4" fill="#F3A424"/>
+                                    </svg>
+                                </div>
+
+                                <div class="dash-stats-row">
+                                    <div class="dash-stat-mini">
+                                        <div class="dash-stat-num blue" id="counter-leads">0%</div>
+                                        <div class="dash-stat-label">Lead Growth</div>
+                                        <svg class="dash-stat-spark" viewBox="0 0 40 14" fill="none"><path d="M2 12 L8 9 L14 10 L20 6 L26 4 L32 5 L38 2" stroke="var(--primary-blue)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+                                    </div>
+                                    <div class="dash-stat-mini">
+                                        <div class="dash-stat-num cyan" id="counter-roas">0X</div>
+                                        <div class="dash-stat-label">Blended ROAS</div>
+                                        <svg class="dash-stat-spark" viewBox="0 0 40 14" fill="none"><path d="M2 10 L10 8 L18 5 L26 6 L34 2" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+                                    </div>
+                                    <div class="dash-stat-mini">
+                                        <div class="dash-stat-num orange" id="counter-conv">0%</div>
+                                        <div class="dash-stat-label">Conv. Rate</div>
+                                        <svg class="dash-stat-spark" viewBox="0 0 40 14" fill="none"><path d="M2 11 L10 7 L18 8 L26 3 L34 4" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Badge: Satisfaction -->
+                        <div class="float-badge badge-stat">
+                            <div class="badge-icon-circle teal">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <svg class="sat-ring" viewBox="0 0 42 42">
+                                    <circle class="sat-ring-path" cx="21" cy="21" r="19"/>
+                                    <circle class="sat-ring-progress" cx="21" cy="21" r="19"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="badge-stat-value" id="counter-satisfaction">0%</div>
+                                <div class="badge-stat-label">Client Satisfaction</div>
+                                <div class="badge-stat-stars">
+                                    <svg class="star-icon" viewBox="0 0 12 12" fill="var(--orange)" stroke="none"><polygon points="6 1 7.5 4.5 11 4.5 8.25 7 9.25 10.5 6 8.5 2.75 10.5 3.75 7 1 4.5 4.5 4.5"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 12 12" fill="var(--orange)" stroke="none"><polygon points="6 1 7.5 4.5 11 4.5 8.25 7 9.25 10.5 6 8.5 2.75 10.5 3.75 7 1 4.5 4.5 4.5"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 12 12" fill="var(--orange)" stroke="none"><polygon points="6 1 7.5 4.5 11 4.5 8.25 7 9.25 10.5 6 8.5 2.75 10.5 3.75 7 1 4.5 4.5 4.5"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 12 12" fill="var(--orange)" stroke="none"><polygon points="6 1 7.5 4.5 11 4.5 8.25 7 9.25 10.5 6 8.5 2.75 10.5 3.75 7 1 4.5 4.5 4.5"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 12 12" fill="var(--orange)" stroke="none"><polygon points="6 1 7.5 4.5 11 4.5 8.25 7 9.25 10.5 6 8.5 2.75 10.5 3.75 7 1 4.5 4.5 4.5"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Badge: Growth -->
+                        <div class="float-badge badge-growth">
+                            <div class="badge-growth-header">
+                                <div class="badge-icon-circle green">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28CA42" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                                </div>
+                                <div>
+                                    <div class="badge-growth-title">Campaign Growth</div>
+                                    <div class="badge-growth-sub">Q4 Performance</div>
+                                </div>
+                            </div>
+                            <div class="growth-bar-bg"><div class="growth-bar-fill" id="growth-bar"></div></div>
+                            <div class="growth-bar-labels"><span>Progress</span><span class="val" id="growth-pct">0%</span></div>
+                            <div class="growth-channels">
+                                <span class="growth-ch-tag seo">SEO</span>
+                                <span class="growth-ch-tag ads">PPC</span>
+                                <span class="growth-ch-tag social">Social</span>
+                            </div>
+                        </div>
+
+                        <!-- Badge: ROAS -->
+                        <div class="float-badge badge-roas">
+                            <div class="badge-icon-circle orange-bg">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+                            </div>
+                            <div>
+                                <div class="badge-roas-value" id="counter-roas-badge">0X</div>
+                                <div class="badge-roas-label">Blended ROAS</div>
+                                <svg class="roas-spark" viewBox="0 0 44 16" fill="none">
+                                    <path class="roas-spark-line" d="M2 14 L8 10 L14 11 L20 7 L26 5 L32 6 L38 2 L42 3" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Badge: Notification -->
+                        <div class="float-badge badge-notif">
+                            <div class="badge-notif-dot"></div>
+                            <div>
+                                <div class="badge-notif-text">New Lead Captured</div>
+                                <div class="badge-notif-sub">Google Ads - 2 min ago</div>
+                                <div class="badge-notif-action">View Details</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            /* --- Counters --- */
+            function animateCounter(el, target, suffix, duration) {
+                if (!el) return;
+                const isDecimal = String(target).includes('.');
+                const step = isDecimal ? 0.1 : 1;
+                const totalSteps = target / step;
+                const stepTime = Math.max(Math.floor(duration / totalSteps), 16);
+                let current = 0;
+                setTimeout(() => {
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) { current = target; clearInterval(timer); }
+                        el.textContent = (isDecimal ? current.toFixed(1) : Math.round(current)) + suffix;
+                    }, stepTime);
+                }, 700);
+            }
+
+            animateCounter(document.getElementById('counter-satisfaction'), 98, '%', 1600);
+            animateCounter(document.getElementById('counter-leads'), 285, '%', 1400);
+            animateCounter(document.getElementById('counter-roas'), 3.8, 'X', 1200);
+            animateCounter(document.getElementById('counter-roas-badge'), 3.8, 'X', 1400);
+            animateCounter(document.getElementById('counter-conv'), 42, '%', 1000);
+
+            /* --- Growth bar --- */
+            const growthBar = document.getElementById('growth-bar');
+            const growthPct = document.getElementById('growth-pct');
+            setTimeout(() => {
+                if (growthBar) growthBar.style.width = '87%';
+                let p = 0;
+                const pt = setInterval(() => {
+                    p++; if (p >= 87) { p = 87; clearInterval(pt); }
+                    if (growthPct) growthPct.textContent = p + '%';
+                }, 14);
+            }, 1000);
+
+            /* --- Ascent chart draw --- */
+            const ascentLine = document.getElementById('ascent-line');
+            const ascentArea = document.getElementById('ascent-area');
+            const chartValue = document.getElementById('chart-value');
+            const dots = document.querySelectorAll('.ascent-dot');
+
+            setTimeout(() => {
+                if (ascentLine) ascentLine.classList.add('drawn');
+                if (ascentArea) ascentArea.classList.add('visible');
+                if (chartValue) chartValue.classList.add('visible');
+            }, 900);
+
+            // Stagger dots
+            dots.forEach((dot, i) => {
+                setTimeout(() => { dot.classList.add('visible'); }, 1200 + i * 200);
+            });
+
+            /* --- Dashboard hover re-trigger chart --- */
+            const dashMain = document.getElementById('dashboard-main');
+            dashMain.addEventListener('mouseenter', () => {
+                // Re-draw line animation
+                ascentLine.classList.remove('drawn');
+                ascentArea.classList.remove('visible');
+                chartValue.classList.remove('visible');
+                dots.forEach(d => d.classList.remove('visible'));
+
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        ascentLine.classList.add('drawn');
+                        ascentArea.classList.add('visible');
+                        chartValue.classList.add('visible');
+                        dots.forEach((dot, i) => {
+                            setTimeout(() => { dot.classList.add('visible'); }, 300 + i * 150);
+                        });
+                    });
+                });
+            });
+
+            /* --- 3D Parallax --- */
+            const hero = document.getElementById('hero-section');
+            const scene = document.getElementById('showcase-scene');
+
+            if (window.innerWidth > 768) {
+                hero.addEventListener('mousemove', (e) => {
+                    const rect = hero.getBoundingClientRect();
+                    const cx = rect.width / 2;
+                    const cy = rect.height / 2;
+                    const mx = e.clientX - rect.left;
+                    const my = e.clientY - rect.top;
+                    const ry = ((mx - cx) / cx) * 5;
+                    const rx = ((cy - my) / cy) * 3;
+                    scene.style.transform = 'rotateY(' + ry + 'deg) rotateX(' + rx + 'deg)';
+                });
+                hero.addEventListener('mouseleave', () => {
+                    scene.style.transform = 'rotateY(0deg) rotateX(0deg)';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

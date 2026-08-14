@@ -509,93 +509,208 @@
 
   <main>
     <!-- Section 1: Hero -->
-    <section class="section" style="padding-top: calc(var(--space-10) + 40px); background: linear-gradient(180deg, var(--color-paper) 0%, var(--color-cloud) 100%);">
+    <section class="hero" id="hero-section">
       <div class="container">
-        <div class="grid grid-12 items-center gap-8">
-          <!-- Hero Text & CTA -->
-          <div style="grid-column: span 7;">
-            <span class="eyebrow">
-              <svg width="16" height="16"><use href="#icon-sparkles"></use></svg>
-              360° Digital Growth Agency
-            </span>
-            <h1 style="margin-bottom: var(--space-4);">Every Channel. One Strategy. Real Growth.</h1>
-            <p class="lead" style="margin-bottom: var(--space-6);">
-              Apex Brand Works is a digital marketing agency delivering 360° growth solutions. We combine performance paid media, technical SEO, brand identity, and custom web builds into a single revenue-generating engine.
-            </p>
+        <div class="hero-grid">
 
-            <!-- Clean, High-Impact CTA Buttons -->
-            <div class="flex items-center gap-4" style="flex-wrap: wrap;">
-              <a href="/contact" class="btn btn-primary btn-lg">
-                Get a Free Consultation
-                <svg width="18" height="18"><use href="#icon-arrow-right"></use></svg>
-              </a>
-              <a href="#services-overview" class="btn btn-secondary btn-lg">
-                Explore All 11 Services
-              </a>
-            </div>
-
-            <p style="font-size: 0.8125rem; color: var(--color-slate); margin-top: var(--space-4); margin-bottom: 0;">
-              No commitment required — free 360° audit included with every proposal.
-            </p>
-          </div>
-
-          <!-- Hero Creative Visual Showcase Card Widget -->
-          <div style="grid-column: span 5;">
-            <div class="hero-card-showcase">
-              <!-- Floating Pill Top Right -->
-              <div class="hero-floating-badge hero-floating-badge--top-right">
-                <div class="badge-icon-box teal">
-                  <svg width="20" height="20"><use href="#icon-trending"></use></svg>
-                </div>
-                <div>
-                  <div class="badge-stat-val" style="color: var(--color-signal-teal);">+285%</div>
-                  <div class="badge-stat-lbl">Lead Volume</div>
-                </div>
-              </div>
-
-              <!-- Floating Pill Bottom Left -->
-              <div class="hero-floating-badge hero-floating-badge--bottom-left">
-                <div class="badge-icon-box violet">
-                  <svg width="20" height="20"><use href="#icon-sparkles"></use></svg>
-                </div>
-                <div>
-                  <div class="badge-stat-val" style="color: var(--color-violet-ascent);">3.8X</div>
-                  <div class="badge-stat-lbl">Blended ROAS</div>
-                </div>
-              </div>
-
-              <!-- Card Header -->
-              <div class="hero-card-header">
-                <div>
-                  <span class="eyebrow eyebrow--teal" style="margin-bottom: 0; font-size: 0.75rem;">System Dashboard</span>
-                  <h3 style="font-size: 1.125rem; margin-top: 2px;">Apex Ascent Engine</h3>
-                </div>
-                <div class="hero-live-badge">
-                  <div class="hero-live-dot"></div>
-                  LIVE SYSTEM
-                </div>
-              </div>
-
-              <!-- Ascent Line Graphic -->
-              <svg class="ascent-line-svg" viewBox="0 0 400 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: 10px;">
-                <path class="ascent-line-path" d="M 10 145 L 35 148 L 60 138 L 85 144 L 110 139 L 140 120 L 180 100 L 230 70 L 290 40 L 370 15" stroke="url(#ascentGradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-                <defs>
-                  <linearGradient id="ascentGradient" x1="0" y1="145" x2="370" y2="15" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#5B6178" />
-                    <stop offset="0.4" stop-color="#06D9F9" />
-                    <stop offset="1" stop-color="#0263DC" />
-                  </linearGradient>
-                </defs>
-                <circle cx="370" cy="15" r="6" fill="#F7A319" />
+          <!-- LEFT -->
+          <div class="hero-left">
+            <div class="eyebrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-ignite-coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
               </svg>
+              360° Digital Growth Agency
+            </div>
 
-              <!-- Footer Stats Comparison -->
-              <div class="flex justify-between items-center" style="margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1px solid var(--color-mist); font-size: 0.8125rem; color: var(--color-slate);">
-                <span>Isolated Channels</span>
-                <span style="font-weight: 700; color: var(--color-apex-blue);">Unified Strategy Peak</span>
+            <h1 class="hero-title">Every Channel.<br>One Strategy.<br><span class="gradient-text">Real Growth.</span></h1>
+
+            <p class="hero-desc">Apex Brand Works is a digital marketing agency delivering 360° growth solutions. We combine performance paid media, technical SEO, brand identity, and custom web builds into a single revenue-generating engine.</p>
+
+            <div class="cta-row">
+              <a href="/contact" class="btn-cta">
+                <span>Get a Free Consultation</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1;">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+              <a href="#services-overview" class="hero-btn-secondary">
+                Explore All Services
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+            </div>
+
+            <p class="hero-note">No commitment required — free 360° audit included with every consultation.</p>
+
+            <div class="trusted-section">
+              <div class="trusted-label">Trusted by 150+ brands worldwide</div>
+              <div class="trusted-logos">
+                <div class="trusted-logo-item">
+                  <div class="trusted-logo-mark" style="background: rgba(39,93,219,0.08);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-apex-blue)" stroke-width="2" stroke-linecap="round"><path d="M12 2L15 8.5L22 9.5L17 14.5L18 21.5L12 18L6 21.5L7 14.5L2 9.5L9 8.5Z"/></svg></div>
+                  <span class="trusted-logo-name">Stellar Co</span>
+                </div>
+                <div class="trusted-logo-item">
+                  <div class="trusted-logo-mark" style="background: rgba(55,217,248,0.08);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-signal-teal)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m-7.07-15.07l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4m-15.07 7.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg></div>
+                  <span class="trusted-logo-name">NovaTech</span>
+                </div>
+                <div class="trusted-logo-item">
+                  <div class="trusted-logo-mark" style="background: rgba(243,164,36,0.08);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-ignite-coral)" stroke-width="2" stroke-linecap="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
+                  <span class="trusted-logo-name">CloudBase</span>
+                </div>
+                <div class="trusted-logo-item">
+                  <div class="trusted-logo-mark" style="background: rgba(29,69,173,0.08);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-deep-blue, #1D45AD)" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                  <span class="trusted-logo-name">Kinetic</span>
+                </div>
+                <div class="trusted-logo-item">
+                  <div class="trusted-logo-mark" style="background: rgba(39,93,219,0.08);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-apex-blue)" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <span class="trusted-logo-name">Prismify</span>
+                </div>
               </div>
             </div>
           </div>
+
+          <!-- RIGHT -->
+          <div class="hero-right" id="hero-right">
+            <div class="showcase-scene" id="showcase-scene">
+
+              <!-- Dashboard -->
+              <div class="dashboard-main" id="dashboard-main">
+                <div class="dash-toolbar">
+                  <div class="dash-dots"><div class="dash-dot"></div><div class="dash-dot"></div><div class="dash-dot"></div></div>
+                  <span class="dash-title">Apex Ascent Engine</span>
+                  <div class="dash-nav">
+                    <span class="dash-nav-item active">Overview</span>
+                    <span class="dash-nav-item">Channels</span>
+                    <span class="dash-nav-item">Reports</span>
+                  </div>
+                </div>
+                <div class="dash-body">
+                  <!-- Ascent Chart -->
+                  <div class="dash-chart-area">
+                    <div class="dash-chart-header">
+                      <span class="dash-chart-title">Revenue Growth</span>
+                      <span class="dash-chart-period">Last 12 Months</span>
+                    </div>
+                    <div class="dash-chart-value" id="chart-value">
+                      +285%
+                      <small>vs last year</small>
+                    </div>
+                    <svg class="ascent-chart-svg" viewBox="0 0 320 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="lineGrad" x1="0" y1="60" x2="320" y2="10" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#5E6680"/>
+                          <stop offset="0.35" stop-color="#37D9F8"/>
+                          <stop offset="1" stop-color="#275DDB"/>
+                        </linearGradient>
+                        <linearGradient id="areaGrad" x1="160" y1="10" x2="160" y2="70" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#275DDB" stop-opacity="0.12"/>
+                          <stop offset="1" stop-color="#275DDB" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      <!-- Area fill -->
+                      <path class="ascent-area" id="ascent-area" d="M 10 58 L 40 55 L 70 50 L 100 52 L 130 44 L 160 38 L 195 28 L 230 22 L 265 15 L 300 8 L 300 70 L 10 70 Z" fill="url(#areaGrad)"/>
+                      <!-- Line -->
+                      <path class="ascent-line" id="ascent-line" d="M 10 58 L 40 55 L 70 50 L 100 52 L 130 44 L 160 38 L 195 28 L 230 22 L 265 15 L 300 8" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <!-- Data points -->
+                      <circle class="ascent-dot" id="dot-0" cx="10" cy="58" r="3" fill="var(--color-slate)"/>
+                      <circle class="ascent-dot" id="dot-1" cx="70" cy="50" r="3" fill="#37D9F8"/>
+                      <circle class="ascent-dot" id="dot-2" cx="130" cy="44" r="3" fill="#37D9F8"/>
+                      <circle class="ascent-dot" id="dot-3" cx="195" cy="28" r="3" fill="#275DDB"/>
+                      <circle class="ascent-dot" id="dot-4" cx="265" cy="15" r="3" fill="#275DDB"/>
+                      <circle class="ascent-dot" id="dot-5" cx="300" cy="8" r="4" fill="#F3A424"/>
+                    </svg>
+                  </div>
+
+                  <div class="dash-stats-row">
+                    <div class="dash-stat-mini">
+                      <div class="dash-stat-num blue" id="counter-leads">0%</div>
+                      <div class="dash-stat-label">Lead Growth</div>
+                      <svg class="dash-stat-spark" viewBox="0 0 40 14" fill="none"><path d="M2 12 L8 9 L14 10 L20 6 L26 4 L32 5 L38 2" stroke="var(--color-apex-blue)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+                    </div>
+                    <div class="dash-stat-mini">
+                      <div class="dash-stat-num cyan" id="counter-roas">0X</div>
+                      <div class="dash-stat-label">Blended ROAS</div>
+                      <svg class="dash-stat-spark" viewBox="0 0 40 14" fill="none"><path d="M2 10 L10 8 L18 5 L26 6 L34 2" stroke="var(--color-signal-teal)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+                    </div>
+                    <div class="dash-stat-mini">
+                      <div class="dash-stat-num orange" id="counter-conv">0%</div>
+                      <div class="dash-stat-label">Conv. Rate</div>
+                      <svg class="dash-stat-spark" viewBox="0 0 40 14" fill="none"><path d="M2 11 L10 7 L18 8 L26 3 L34 4" stroke="var(--color-ignite-coral)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Badge: Satisfaction -->
+              <div class="float-badge badge-stat">
+                <div class="badge-icon-circle teal">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-signal-teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg class="sat-ring" viewBox="0 0 42 42">
+                    <circle class="sat-ring-path" cx="21" cy="21" r="19"/>
+                    <circle class="sat-ring-progress" cx="21" cy="21" r="19"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="badge-stat-value" id="counter-satisfaction">0%</div>
+                  <div class="badge-stat-label">Client Satisfaction</div>
+                  <div class="badge-stat-stars">
+                    <svg class="star-icon" viewBox="0 0 12 12" fill="var(--color-ignite-coral)" stroke="none"><polygon points="6 1 7.5 4.5 11 4.5 8.25 7 9.25 10.5 6 8.5 2.75 10.5 3.75 7 1 4.5 4.5 4.5"/></svg>
+                    <svg class="star-icon" viewBox="0 0 12 12" fill="var(--color-ignite-coral)" stroke="none"><polygon points="6 1 7.5 4.5 11 4.5 8.25 7 9.25 10.5 6 8.5 2.75 10.5 3.75 7 1 4.5 4.5 4.5"/></svg>
+                    <svg class="star-icon" viewBox="0 0 12 12" fill="var(--color-ignite-coral)" stroke="none"><polygon points="6 1 7.5 4.5 11 4.5 8.25 7 9.25 10.5 6 8.5 2.75 10.5 3.75 7 1 4.5 4.5 4.5"/></svg>
+                    <svg class="star-icon" viewBox="0 0 12 12" fill="var(--color-ignite-coral)" stroke="none"><polygon points="6 1 7.5 4.5 11 4.5 8.25 7 9.25 10.5 6 8.5 2.75 10.5 3.75 7 1 4.5 4.5 4.5"/></svg>
+                    <svg class="star-icon" viewBox="0 0 12 12" fill="var(--color-ignite-coral)" stroke="none"><polygon points="6 1 7.5 4.5 11 4.5 8.25 7 9.25 10.5 6 8.5 2.75 10.5 3.75 7 1 4.5 4.5 4.5"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Badge: Growth -->
+              <div class="float-badge badge-growth">
+                <div class="badge-growth-header">
+                  <div class="badge-icon-circle green">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28CA42" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                  </div>
+                  <div>
+                    <div class="badge-growth-title">Campaign Growth</div>
+                    <div class="badge-growth-sub">Q4 Performance</div>
+                  </div>
+                </div>
+                <div class="growth-bar-bg"><div class="growth-bar-fill" id="growth-bar"></div></div>
+                <div class="growth-bar-labels"><span>Progress</span><span class="val" id="growth-pct">0%</span></div>
+                <div class="growth-channels">
+                  <span class="growth-ch-tag seo">SEO</span>
+                  <span class="growth-ch-tag ads">PPC</span>
+                  <span class="growth-ch-tag social">Social</span>
+                </div>
+              </div>
+
+              <!-- Badge: ROAS -->
+              <div class="float-badge badge-roas">
+                <div class="badge-icon-circle orange-bg">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-ignite-coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+                </div>
+                <div>
+                  <div class="badge-roas-value" id="counter-roas-badge">0X</div>
+                  <div class="badge-roas-label">Blended ROAS</div>
+                  <svg class="roas-spark" viewBox="0 0 44 16" fill="none">
+                    <path class="roas-spark-line" d="M2 14 L8 10 L14 11 L20 7 L26 5 L32 6 L38 2 L42 3" stroke="var(--color-ignite-coral)" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Badge: Notification -->
+              <div class="float-badge badge-notif">
+                <div class="badge-notif-dot"></div>
+                <div>
+                  <div class="badge-notif-text">New Lead Captured</div>
+                  <div class="badge-notif-sub">Google Ads - 2 min ago</div>
+                  <div class="badge-notif-action">View Details</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
