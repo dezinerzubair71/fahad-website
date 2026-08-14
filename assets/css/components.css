@@ -639,21 +639,21 @@
 
 .ascent-line {
     stroke-dasharray: 600;
-    stroke-dashoffset: 600;
+    stroke-dashoffset: 0;
     transition: stroke-dashoffset 2s cubic-bezier(0.16,1,0.3,1);
 }
 
 .ascent-line.drawn { stroke-dashoffset: 0; }
 
 .ascent-area {
-    opacity: 0;
-    transition: opacity 1.5s ease 0.5s;
+    opacity: 1;
+    transition: opacity 1.5s ease;
 }
 
 .ascent-area.visible { opacity: 1; }
 
 .ascent-dot {
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.4s ease, r 0.3s ease;
 }
 
